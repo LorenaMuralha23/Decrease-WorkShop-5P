@@ -6,6 +6,7 @@ import com.decrease.entities.Address;
 import com.decrease.entities.Cart;
 import com.decrease.entities.CartItem;
 import com.decrease.entities.User;
+import com.decrease.model.Alerts;
 import com.decrease.model.CustomException;
 import com.decrease.repositories.UserRepository;
 import com.decrease.services.UserService;
@@ -119,9 +120,11 @@ public class UserServiceTest {
     @Test
     public void testInsertForAnExistingUsername() {
         User userMock = new User(null, "User Test", "userTst@gmail.com", "99999999", "password");
-
+        Alerts alert = mock(Alerts.class);
+        
         when(repository.existsByName(userMock.getName())).thenReturn(true);
 
+        
         CustomException e = assertThrows(CustomException.class, () -> service.insert(userMock));
         String msg = msg = """
                         Username provided is already in use.

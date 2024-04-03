@@ -23,6 +23,10 @@
         @Autowired
         private ValidatorController validator;
 
+        public void showErrorMsg(String msg, String title){
+            Alerts.showErrorMessage(msg, msg, null);
+        }
+        
         public List<User> findAll() {
             return repository.findAll();
         }
@@ -66,7 +70,8 @@
                 }
 
             } catch (CustomException e) {
-                Alerts.showErrorMessage(e.getMessage(), "There was a Problem", null);
+//                Alerts.showErrorMessage(e.getMessage(), "There was a Problem", null);
+                showErrorMsg(e.getMessage(), "There was a Problem");
                 throw e;
             }
         }
@@ -113,7 +118,8 @@
                 }
 
             } catch (CustomException e) {
-                Alerts.showErrorMessage(e.getMessage(), "There was a Problem", null);
+//                Alerts.showErrorMessage(e.getMessage(), "There was a Problem", null);
+                showErrorMsg(e.getMessage(), "There was a Problem");
                 throw e;
             }
 
