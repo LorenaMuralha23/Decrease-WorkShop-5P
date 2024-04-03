@@ -27,23 +27,6 @@
     <p2 style="font-size: 18px;"> Feedbacks sobre o projeto, código, estrutura ou qualquer aspecto relacionado que possa contribuir para melhorias serão bem-vindos e valorizados pelos envolvidos em seu desenvolvimento.
     </p2>
 </div>
-<br>
-<br>
-
-<div id="table-of-contents">
-    <h2>Tabela de Conteúdos 📜</h2>
-    <ul style="font-size: 18px;">
-        <li><a href="#sobre-o-projeto">Sobre o Projeto</a></li>
-        <li><a href="#objetivo">Objetivo</a></li>
-        <li><a href="#instruções-de-instalação-e-execução-do-projeto">Instruções de Instalação e Execução do Projeto</a></li>
-        <li><a href="#ferramentas-utilizadas">Ferramentas Utilizadas</a></li>
-        <li><a href="#testes-realizados">Testes Realizados</a></li>
-        <li><a href="#funcionalidades-desejadas-todo">Funcionalidades Desejadas (ToDo)</a></li>
-        <li><a href="#relatório-do-software">Relatório do Software</a></li>
-        <li><a href="#créditos">Créditos</a></li>
-    </ul>
-</div>
-
 
 <br>
 <br>
