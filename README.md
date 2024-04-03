@@ -36,7 +36,7 @@
 
 <h2>Requisitos Necessários:</h2>
 <ul style="font-size: 18px;">
-  <li>Java 17 instalado na máquina.</li>
+  <li>Java 17.0.10 instalado na máquina.</li>
   <li>NetBeans 12.6 instalado.</li>
 </ul>
 
