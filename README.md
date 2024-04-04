@@ -55,7 +55,7 @@
 <ol style="font-size: 18px;">
   <li>Clique neste <a href="https://drive.google.com/drive/folders/1jF6mdENtKvjHp_pfjti8LmXR2Rc
 fqlej?usp=drive_link">link</a> para acessar o drive.</li>
-  <li>Clique com o botão direito sobre a pasta ?? e clique em “Fazer download”.</li>
+  <li>Clique com o botão direito sobre a pasta "Decrease-WorkShop-5P" e clique em “Fazer download”.</li>
   <li>Após o download, descompacte o arquivo desejado em um local de sua preferência.</li>
   <li>No NetBeans, clique em "File" > "Open Project" e selecione o diretório onde o projeto foi descompactado.</li>
   <li>Selecione o projeto e clique em "Open Project".</li>
