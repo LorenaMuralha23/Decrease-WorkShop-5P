@@ -45,7 +45,7 @@
   <li>Abra o terminal e certifique-se de que o Git está instalado na sua máquina.</li>
    <li>Escolha a pasta que deseja armazenar o projeto.</li>
   <li>Utilize o comando <code>git clone</code> seguido da URL do projeto:<br>
-    <code>git clone https://github.com/LorenaMuralha23/Projeto-EngSoft-5P-Tests.git</code></li>
+    <code>git clone https://github.com/LorenaMuralha23/Decrease-WorkShop-5P.git</code></li>
   <li>Abra o NetBeans.</li>
   <li>No NetBeans, clique em "File" > "Open Project" e selecione o diretório onde o projeto foi clonado.</li>
   <li>Selecione o projeto e clique em "Open Project".</li>
@@ -54,7 +54,7 @@
 <h2>Pelo Google Drive:</h2>
 <ol style="font-size: 18px;">
   <li>Clique no link de acesso abaixo: <a href="#">futuro link</a>.</li>
-  <li>Clique com o botão direito sobre a pasta Projeto-EngSoft-5P-Tests e clique em “Fazer download”.</li>
+  <li>Clique com o botão direito sobre a pasta ?? e clique em “Fazer download”.</li>
   <li>Após o download, descompacte o arquivo desejado em um local de sua preferência.</li>
   <li>No NetBeans, clique em "File" > "Open Project" e selecione o diretório onde o projeto foi descompactado.</li>
   <li>Selecione o projeto e clique em "Open Project".</li>
@@ -63,9 +63,7 @@
 <h2>Como Rodar o Projeto:</h2>
 <ul style="font-size: 18px;">
   <li>Abra o projeto no NetBeans seguindo os passos dados anteriormente.</li>
-  <li>Expanda o folder "Source Packages".</li>
-  <li>Expanda o package "com.decrease".</li>
-  <li>Clique com o botão direito sobre o arquivo EcommerceT1LpApplication.java e clique em Run File.</li>
+  <li>Rode o projeto.</li>
 </ul>
 
 <h2>Visualização do Banco de Dados:</h2>
@@ -73,7 +71,7 @@
   <li>Abra o projeto no NetBeans seguindo os passos dados anteriormente.</li>
   <li>Rode o projeto seguindo as instruções dadas acima.</li>
   <li>Com a aplicação em execução, vá ao seu navegador e digite "localhost:8080/h2-console".</li>
-  <li>Ao abrir o console do H2, clique em botão.</li>
+  <li>Ao abrir o console do H2, clique no botão connect.</li>
 </ol>
 
 <h2>Como Rodar os Testes Unitários:</h2>
