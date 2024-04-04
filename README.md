@@ -96,8 +96,10 @@ fqlej?usp=drive_link">link</a> para acessar o drive.</li>
 <ul style="font-size: 18px;">
   <li>Abra o projeto no NetBeans seguindo os passos dados anteriormente.</li>
   <li>Clique no projeto com o botão direito e escolha "Clean and Build". Essa opção também está disponível no menu de opções do Netbeans.</li>
+  <img src="Imgs_ReadMe/NetbeansMenu.png" alt="NetBeans Menu" style="width: 300px; margin: 5px;">
   <li>Após a mensagem "Build Success", clique com o botão direito sobre o projeto e selecione Code Coverage > Show Report.</li>
 </ul>
+
 
 <p style="font-size: 18px;">Certifique-se de que todos os requisitos necessários estejam instalados e siga os passos acima para configurar e rodar o projeto no NetBeans.</p>
 </div>
@@ -133,7 +135,7 @@ fqlej?usp=drive_link">link</a> para acessar o drive.</li>
 <h2>Testes Funcionais</h2>
 <ul style="font-size: 18px;">
   <li>Foi implementado testes funcionais das principais funcionalidades do projeto.</li>
-  <li>Para mais detalhes sobre os testes funcionais, faça download do <a href="#">relatório</a>.</li>
+  <li>Para mais detalhes sobre os testes funcionais, faça download do <a href="https://drive.google.com/file/d/1kC-XtprzYi3tTg1Dbux9JbkSUb4I8Rqt/view?usp=sharing">relatório</a>.</li>
 </ul>
 </div>
 <br>
