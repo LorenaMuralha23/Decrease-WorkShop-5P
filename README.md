@@ -63,7 +63,9 @@
 <h2>Como Rodar o Projeto:</h2>
 <ul style="font-size: 18px;">
   <li>Abra o projeto no NetBeans seguindo os passos dados anteriormente.</li>
-  <li>Rode o projeto.</li>
+  <li>Expanda o folder "Source Packages".</li>
+  <li>Expanda o package "com.decrease".</li>
+  <li>Clique com o botão direito sobre o arquivo EcommerceT1LpApplication.java e clique em Run File.</li>
 </ul>
 
 <h2>Visualização do Banco de Dados:</h2>
