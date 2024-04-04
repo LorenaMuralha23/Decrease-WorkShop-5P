@@ -53,7 +53,8 @@
 
 <h2>Pelo Google Drive:</h2>
 <ol style="font-size: 18px;">
-  <li>Clique no link de acesso abaixo: <a href="#">futuro link</a>.</li>
+  <li>Clique neste <a href="https://drive.google.com/drive/folders/1jF6mdENtKvjHp_pfjti8LmXR2Rc
+fqlej?usp=drive_link">link</a> para acessar o drive.</li>
   <li>Clique com o botão direito sobre a pasta ?? e clique em “Fazer download”.</li>
   <li>Após o download, descompacte o arquivo desejado em um local de sua preferência.</li>
   <li>No NetBeans, clique em "File" > "Open Project" e selecione o diretório onde o projeto foi descompactado.</li>
@@ -66,6 +67,13 @@
   <li>Expanda o folder "Source Packages".</li>
   <li>Expanda o package "com.decrease".</li>
   <li>Clique com o botão direito sobre o arquivo EcommerceT1LpApplication.java e clique em Run File.</li>
+</ul>
+
+<h2>OBSERVAÇÃO</h2>
+<p style="font-size: 18px;">Para testar a aplicação, utilize os seguintes dados de login:</p>
+<ul style="font-size: 18px;">
+  <li><strong>Email:</strong> user@gmail.com</li>
+  <li><strong>Senha:</strong> 12345</li>
 </ul>
 
 <h2>Visualização do Banco de Dados:</h2>
@@ -148,7 +156,7 @@
 
 <h1>Relatório do Software 📊</h1>
 
-<p style="font-size: 18px;">Para mais detalhes sobre o software, faça download do <a href="#">relatório</a>.</p>
+<p style="font-size: 18px;">Para mais detalhes sobre o software, faça download do <a href="https://drive.google.com/file/d/1kC-XtprzYi3tTg1Dbux9JbkSUb4I8Rqt/view?usp=sharing">relatório</a>.</p>
 
 <br>
 <br>
