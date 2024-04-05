@@ -8,12 +8,22 @@ import com.decrease.view.MainFrame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * A classe SignIn representa o painel de login da aplicação.
+ */
 public class SignIn extends javax.swing.JPanel {
-
+    
+    /**
+     * Construtor da classe SignIn.
+     * Inicializa os componentes do painel.
+     */
     public SignIn() {
         initComponents();
     }
 
+    /**
+     * Método para limpar os campos do formulário de login.
+     */
     public void clearForm() {
         tfEmail.setText("");
         pFdPass.setText("");
@@ -120,11 +130,23 @@ public class SignIn extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método executado quando o texto "Registrar" é clicado.
+     * Abre o painel de cadastro (SignUp).
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRegisterMouseClicked
         MainFrame.signUp = new SignUp();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.signUp);
     }//GEN-LAST:event_lbRegisterMouseClicked
 
+    /**
+     * Método executado quando o texto "Entrar" é clicado.
+     * Obtém o email e a senha do usuário e tenta fazer login.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogInMouseClicked
         String email = tfEmail.getText();
         char[] password = pFdPass.getPassword();
@@ -164,6 +186,12 @@ public class SignIn extends javax.swing.JPanel {
 
     }//GEN-LAST:event_lbLogInMouseClicked
 
+    /**
+     * Método executado quando o texto "Fechar" é clicado.
+     * Retorna ao painel inicial (Home).
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCloseMouseClicked
         MainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);

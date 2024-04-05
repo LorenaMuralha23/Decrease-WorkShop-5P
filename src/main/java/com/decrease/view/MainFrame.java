@@ -20,6 +20,9 @@ import javax.swing.JPanel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * A classe MainFrame representa o frame principal da aplicação.
+ */
 @Component
 public class MainFrame extends javax.swing.JFrame {
 
@@ -47,10 +50,18 @@ public class MainFrame extends javax.swing.JFrame {
     public static SignUp signUp;
 
     
+    /**
+     * Construtor padrão da classe MainFrame.
+     */
     public MainFrame() {
         initComponents();
     }
 
+    
+     /**
+     * Método executado após a construção do frame.
+     * Inicializa o frame com o painel de home.
+     */
     @PostConstruct
     public void starting() {
         this.setLayout(new BorderLayout());
@@ -61,6 +72,11 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Inicializa um novo painel no frame.
+     *
+     * @param newJPanel O novo painel a ser exibido
+     */
     public void initNewPanel(JPanel newJPanel) {
         this.getContentPane().removeAll();
         this.add(newJPanel, BorderLayout.CENTER);

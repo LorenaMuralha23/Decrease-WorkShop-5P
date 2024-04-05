@@ -7,12 +7,33 @@ import com.decrease.model.Alerts;
 import com.decrease.view.MainFrame;
 import javax.swing.ImageIcon;
 
-
+/**
+ * A classe Products representa o painel de exibição de produtos da aplicação de
+ * comércio eletrônico. Este painel exibe uma lista de produtos disponíveis para
+ * compra e permite ao usuário selecionar um produto para visualização
+ * detalhada. Ele também oferece opções para adicionar produtos ao carrinho de
+ * compras, verificar o perfil do usuário e fazer logout.
+ */
 public class Products extends javax.swing.JPanel {
 
+    /**
+     * Variável booleana que indica se algum produto foi selecionado para
+     * exibição detalhada. Quando um produto é selecionado, o valor desta
+     * variável é true; caso contrário, é false.
+     */
     private boolean isAnyProductSelected; 
+    
+    /**
+     * Referência ao produto que está selecionado para exibição detalhada.
+     * Quando um produto é selecionado, esta variável mantém o objeto Product
+     * correspondente.
+     */
     private Product selectedProduct; 
 
+    /**
+     * Construtor padrão da classe Products. Inicializa os componentes do painel
+     * e verifica se o usuário está logado.
+     */
     public Products() {
         initComponents();
         verifyUserLogged();
@@ -20,6 +41,10 @@ public class Products extends javax.swing.JPanel {
         initSelectedProductComponents();
     }
 
+    /**
+     * Inicializa os componentes visuais do painel de acordo com a seleção de um
+     * produto.
+     */
     public void initSelectedProductComponents() {
         if (isAnyProductSelected) {
             lbSelectedProduct.setVisible(true);
@@ -38,6 +63,10 @@ public class Products extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Verifica se o usuário está logado e ajusta a visibilidade do botão de
+     * logout de acordo.
+     */
     public void verifyUserLogged() {
         
         if (SessionController.getInstance().isLoggedIn()) {
@@ -48,6 +77,11 @@ public class Products extends javax.swing.JPanel {
 
     }
 
+    /**
+     * Define o produto selecionado para exibição detalhada.
+     *
+     * @param p O produto selecionado.
+     */
     public void setSelectedProduct(Product p){
         selectedProduct = p;
     
@@ -212,6 +246,12 @@ public class Products extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 600));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método executado quando o ícone do carrinho é clicado. Abre o painel do
+     * carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
+     *
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIconCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconCartMouseClicked
         String msg;
         
@@ -230,11 +270,23 @@ public class Products extends javax.swing.JPanel {
 
     }//GEN-LAST:event_lbIconCartMouseClicked
 
+    /**
+     * Método executado quando o ícone do perfil é clicado. Abre o painel de
+     * perfil.
+     *
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIconProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconProfileMouseClicked
         MainFrame.profile = new Profile();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.profile);
     }//GEN-LAST:event_lbIconProfileMouseClicked
 
+    /**
+     * Método executado quando o texto "Sair" é clicado. Realiza o logout do
+     * usuário.
+     *
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
 
@@ -265,35 +317,72 @@ public class Products extends javax.swing.JPanel {
         
     }//GEN-LAST:event_lbLogOutMouseClicked
 
+    /**
+     * Método executado quando o label de retorno à página inicial é clicado.
+     * Retorna à página inicial.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
         MainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
     }//GEN-LAST:event_lbHomeMouseClicked
 
+    /**
+     * Método executado quando um dos labels de produtos é clicado.
+     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb1stProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb1stProductMouseClicked
         isAnyProductSelected = true;
         Product p1 = EcommerceT1LpApplication.mainFrame.productController.findById(1L);
         setSelectedProduct(p1);
     }//GEN-LAST:event_lb1stProductMouseClicked
 
+    /**
+     * Método executado quando o segundo label de produtos é clicado.
+     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb2ndProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb2ndProductMouseClicked
         isAnyProductSelected = true;
         Product p2 = EcommerceT1LpApplication.mainFrame.productController.findById(2L);
         setSelectedProduct(p2);
     }//GEN-LAST:event_lb2ndProductMouseClicked
 
+    /**
+     * Método executado quando o terceiro label de produtos é clicado.
+     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb3rdProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb3rdProductMouseClicked
         isAnyProductSelected = true;
         Product p3 = EcommerceT1LpApplication.mainFrame.productController.findById(3L);
         setSelectedProduct(p3);
     }//GEN-LAST:event_lb3rdProductMouseClicked
 
+    /**
+     * Método executado quando o quarto label de produtos é clicado.
+     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb4thProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb4thProductMouseClicked
         isAnyProductSelected = true;
         Product p4 = EcommerceT1LpApplication.mainFrame.productController.findById(4L);
         setSelectedProduct(p4);
     }//GEN-LAST:event_lb4thProductMouseClicked
 
+    /**
+     * Método executado quando o ícone de adicionar ao carrinho é clicado.
+     * Adiciona o produto selecionado ao carrinho do usuário logado, se houver.
+     * Caso contrário, exibe uma mensagem de alerta para o usuário.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIconAddToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconAddToCartMouseClicked
         String msg;
         

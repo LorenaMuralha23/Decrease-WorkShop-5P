@@ -8,6 +8,9 @@ import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Classe que representa a chave primária composta para um item de carrinho.
+ */
 @Embeddable
 public class CartItemPK implements Serializable {
 
@@ -19,22 +22,42 @@ public class CartItemPK implements Serializable {
     @JoinColumn(name = "id_product")
     private Product product;
 
+    /**
+     * Obtém o carrinho associado ao item.
+     * @return O carrinho associado ao item.
+     */
     public Cart getCart() {
         return cart;
     }
 
+    /**
+     * Define o carrinho associado ao item.
+     * @param cart O carrinho associado ao item.
+     */
     public void setCart(Cart cart) {
         this.cart = cart;
     }
 
+    /**
+     * Obtém o produto associado ao item.
+     * @return O produto associado ao item.
+     */
     public Product getProduct() {
         return product;
     }
 
+    /**
+     * Define o produto associado ao item.
+     * @param product O produto associado ao item.
+     */
     public void setProduct(Product product) {
         this.product = product;
     }
 
+    /**
+     * Gera o código hash para a chave primária composta.
+     * @return O código hash gerado.
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -43,6 +66,11 @@ public class CartItemPK implements Serializable {
         return hash;
     }
 
+    /**
+     * Verifica se a chave primária composta é igual a outro objeto.
+     * @param obj O objeto a ser comparado.
+     * @return true se a chave primária composta for igual ao objeto fornecido, false caso contrário.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

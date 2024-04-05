@@ -14,18 +14,40 @@ import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+/**
+ * Classe que representa o painel de carrinho de compras em uma aplicação de comércio eletrônico.
+ * Este painel exibe os itens no carrinho do usuário e permite interações, como ajustar quantidades,
+ * remover itens, limpar o carrinho e prosseguir para o checkout.
+ */
 public class Cart extends javax.swing.JPanel {
 
+    /**
+     * Usuário logado atualmente.
+     */
     private User userLogged;
+    
+    /**
+     * Itens do carrinho.
+     */
     private CartItem cI1, cI2, cI3, cI4;
+    
+    /**
+     * Lista de itens do carrinho.
+     */
     private List<CartItem> itemList;
 
+    /**
+     * Construtor da classe Cart. Inicializa o painel e recupera os itens do carrinho do usuário logado.
+     */
     public Cart() {
         initComponents();
         userLogged = EcommerceT1LpApplication.mainFrame.userController.getUserLogged(SessionController.getInstance());
         initCartComponents();
     }
 
+    /**
+     * Método para inicializar os componentes do carrinho.
+     */
     public void initCartComponents() {
         int quantityOfItems;
 
@@ -263,6 +285,9 @@ public class Cart extends javax.swing.JPanel {
 
     }
 
+    /**
+     * Método para preencher os componentes do carrinho com informações dos itens.
+     */
     public void fillComponents() {
         int quantityOfItems = userLogged.getCart().getItems().size();
         String iconURL = "/com/decrease/view/images/icons/removeFromCart.png";
@@ -405,12 +430,26 @@ public class Cart extends javax.swing.JPanel {
         lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
     }
 
+    /**
+     * Método para redimensionar ícones.
+     *
+     * @param icon   O ícone a ser redimensionado.
+     * @param width  A largura desejada do ícone redimensionado.
+     * @param height A altura desejada do ícone redimensionado.
+     * @return Um novo ImageIcon redimensionado.
+     */
     public ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image img = icon.getImage();
         Image resizedImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImg);
     }
 
+    /**
+     * Método para criar um ImageIcon a partir de um caminho de arquivo.
+     *
+     * @param path O caminho do arquivo de imagem.
+     * @return Um ImageIcon criado a partir do caminho especificado.
+     */
     protected ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = getClass().getResource(path);
         if (imgURL != null) {
@@ -421,23 +460,46 @@ public class Cart extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Método para encontrar um produto pelo índice na lista de itens do carrinho.
+     *
+     * @param position A posição do item na lista (começando em 1).
+     * @return O CartItem correspondente à posição especificada.
+     */
     public CartItem findProduct(int position) {
         itemList = List.copyOf(userLogged.getCart().getItems());
         return itemList.get(position - 1);
     }
 
+    /**
+     * Método para calcular o total de um item no carrinho.
+     *
+     * @param label O rótulo onde o total será exibido.
+     * @param qnt   A quantidade do item.
+     * @param price O preço do item.
+     */
     public void calculateTotal(JLabel label, String qnt, Double price) {
         Double total;
         total = Integer.parseInt(qnt) * price;
         label.setText("R$ " + String.valueOf(total));
     }
 
+    /**
+     * Método para remover um produto do carrinho.
+     *
+     * @param p O produto a ser removido.
+     */
     public void removeFromCart(Product p) {
         Product productFinded = EcommerceT1LpApplication.mainFrame.productController.getProductByName(p.getName());
         EcommerceT1LpApplication.mainFrame.cartController.deleteItem(productFinded, SessionController.getInstance());
         initCartComponents();
     }
 
+    /**
+     * Método para lidar com a quantidade de um item sendo menor que zero.
+     *
+     * @param p O produto relacionado à quantidade negativa.
+     */
     public void qntLessThanZero(Product p) {
         String msg
                 = """
@@ -881,11 +943,21 @@ public class Cart extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, 600));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Evento de clique no ícone de continuar comprando.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbContShoppingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbContShoppingMouseClicked
         MainFrame.products = new Products();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.products);
     }//GEN-LAST:event_lbContShoppingMouseClicked
 
+    /**
+     * Evento de clique no ícone de adicionar mais quantidade ao primeiro item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb1stPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb1stPlusMouseClicked
         if (lb1stPlus.isVisible()) {
             lb1stQnt.setText(String.valueOf(Integer.parseInt(lb1stQnt.getText()) + 1));
@@ -895,6 +967,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb1stPlusMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover quantidade do primeiro item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb1stMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb1stMinusMouseClicked
         if (lb1stPlus.isVisible()) {
             int qntProduct1 = Integer.parseInt(lb1stQnt.getText());
@@ -910,6 +987,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb1stMinusMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover o primeiro item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIcon1stRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon1stRemoveMouseClicked
         if (lbIcon1stRemove.isVisible()) {
             String msg
@@ -931,6 +1013,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbIcon1stRemoveMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover quantidade do segundo item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb2ndMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb2ndMinusMouseClicked
         if (lb2ndPlus.isVisible()) {
             int qntProduct2 = Integer.parseInt(lb2ndQnt.getText());
@@ -946,6 +1033,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb2ndMinusMouseClicked
 
+    /**
+     * Evento de clique no ícone de adicionar mais quantidade ao segundo item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb2ndPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb2ndPlusMouseClicked
         if (lb2ndPlus.isVisible()) {
             lb2ndQnt.setText(String.valueOf(Integer.parseInt(lb2ndQnt.getText()) + 1));
@@ -955,6 +1047,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb2ndPlusMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover o segundo item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIcon2ndRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon2ndRemoveMouseClicked
         if (lbIcon2ndRemove.isVisible()) {
             String msg
@@ -976,6 +1073,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbIcon2ndRemoveMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover quantidade do terceiro item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb3rdMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb3rdMinusMouseClicked
         if (lb3rdPlus.isVisible()) {
             int qntProduct3 = Integer.parseInt(lb3rdQnt.getText());
@@ -991,6 +1093,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb3rdMinusMouseClicked
 
+    /**
+     * Evento de clique no ícone de adicionar mais quantidade ao terceiro item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb3rdPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb3rdPlusMouseClicked
         if (lb3rdPlus.isVisible()) {
             lb3rdQnt.setText(String.valueOf(Integer.parseInt(lb3rdQnt.getText()) + 1));
@@ -1000,6 +1107,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb3rdPlusMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover o terceiro item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIcon3rdRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon3rdRemoveMouseClicked
         if (lbIcon3rdRemove.isVisible()) {
             String msg
@@ -1021,6 +1133,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbIcon3rdRemoveMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover quantidade do quarto item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb4thMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb4thMinusMouseClicked
         if (lb4thPlus.isVisible()) {
             int qntProduct4 = Integer.parseInt(lb4thQnt.getText());
@@ -1036,6 +1153,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb4thMinusMouseClicked
 
+    /**
+     * Evento de clique no ícone de adicionar mais quantidade ao quarto item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lb4thPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb4thPlusMouseClicked
         if (lb4thPlus.isVisible()) {
             lb4thQnt.setText(String.valueOf(Integer.parseInt(lb4thQnt.getText()) + 1));
@@ -1045,6 +1167,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb4thPlusMouseClicked
 
+    /**
+     * Evento de clique no ícone de remover o quarto item do carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIcon4thRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon4thRemoveMouseClicked
         if (lbIcon4thRemove.isVisible()) {
             String msg
@@ -1066,6 +1193,11 @@ public class Cart extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbIcon4thRemoveMouseClicked
 
+    /**
+     * Evento de clique no ícone de limpar o carrinho.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbClearCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClearCartMouseClicked
 
         String msg;
@@ -1102,6 +1234,11 @@ public class Cart extends javax.swing.JPanel {
 
     }//GEN-LAST:event_lbClearCartMouseClicked
 
+    /**
+     * Evento de clique no ícone de prosseguir para o checkout.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCheckoutMouseClicked
 
         String msg;

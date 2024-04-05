@@ -12,13 +12,34 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
+/**
+ * Classe que representa o painel de checkout em uma aplicação de comércio eletrônico.
+ * Este painel permite que o usuário confirme seu pedido, forneça informações de pagamento
+ * e finalize a compra.
+ */
 public class Checkout extends javax.swing.JPanel {
 
+        
+    /**
+     * Modelo do ComboBox para os meses de vencimento.
+     */
     private DefaultComboBoxModel<String> monthModel;
+    /**
+     * Modelo do ComboBox para os anos de vencimento.
+     */
     private DefaultComboBoxModel<String> yearModel;
+    /**
+     * Documento para restringir o número máximo de caracteres em campos de texto.
+     */
     private PlainDocument doc;
+    /**
+     * Usuário logado atualmente.
+     */
     private User userLogged;
 
+    /**
+     * Construtor da classe Checkout. Inicializa o painel de checkout e configura os campos e modelos.
+     */
     public Checkout() {
         initComponents();
         userLogged = EcommerceT1LpApplication.mainFrame.userController.getUserLogged(SessionController.getInstance());
@@ -31,6 +52,12 @@ public class Checkout extends javax.swing.JPanel {
         setTotalCost();
     }
 
+    /**
+     * Método para restringir o número máximo de caracteres em campos de texto.
+     *
+     * @param maxCharacters O número máximo de caracteres permitidos.
+     * @param txtField      O campo de texto a ser restrito.
+     */
     public void restrictFields(int maxCharacters, JTextField txtField) {
         doc = new PlainDocument() {
             @Override
@@ -66,11 +93,17 @@ public class Checkout extends javax.swing.JPanel {
 
     }
 
+     /**
+     * Método para inicializar as restrições de campos.
+     */
     public void initFieldConstraints() {
         restrictFields(16, tfCardNum);
         restrictFields(3, tfCVC);
     }
-
+    
+    /**
+     * Método para inicializar os ComboBoxes.
+     */
     public void initComboBoxes() {
         String[] months = {"January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"};
@@ -89,6 +122,9 @@ public class Checkout extends javax.swing.JPanel {
         startInstallmentNum();
     }
 
+    /**
+     * Método para iniciar o número de parcelas disponíveis com base no subtotal do carrinho.
+     */
     public void startInstallmentNum() {
         double subtotal = EcommerceT1LpApplication.mainFrame.cartController.getSubtotal(SessionController.getInstance());
         int numInstallments = EcommerceT1LpApplication.mainFrame.cartController.calculateInstallments(subtotal);
@@ -102,12 +138,21 @@ public class Checkout extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Método para extrair apenas os números de um JLabel.
+     *
+     * @param label O JLabel do qual extrair os números.
+     * @return A parte numérica do texto do JLabel.
+     */
     public String extractNumFromLabel(JLabel label) {
         String text = label.getText();
         String numericPart = text.replaceAll("[^\\d.]", "");
         return numericPart;
     }
 
+    /**
+     * Método para calcular o custo total da compra.
+     */
     public void setTotalCost() {
         Double total, subtotal, shipping;
         subtotal = Double.parseDouble(extractNumFromLabel(lbSubtotalItems));
@@ -444,6 +489,11 @@ public class Checkout extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, 600));
     }// </editor-fold>//GEN-END:initComponents
 
+     /**
+     * Evento de clique no rótulo de confirmação de pagamento.
+     *
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbConfirmPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConfirmPaymentMouseClicked
         String msg = "";
 
@@ -492,6 +542,11 @@ public class Checkout extends javax.swing.JPanel {
 
     }//GEN-LAST:event_lbConfirmPaymentMouseClicked
 
+    /**
+     * Evento de clique no rótulo de voltar ao carrinho.
+     *
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbBackToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackToCartMouseClicked
         String msg = 
                 """

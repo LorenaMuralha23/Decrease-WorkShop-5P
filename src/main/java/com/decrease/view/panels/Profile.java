@@ -9,16 +9,29 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
+/**
+ * A classe Profile representa o painel que exibe o perfil do usuário e permite realizar ações relacionadas a ele.
+ */
 public class Profile extends javax.swing.JPanel {
 
+    /**
+     * Referência ao usuário logado.
+     */
     private User userLogged;
     
+    /**
+     * Construtor da classe Profile.
+     * Inicializa os componentes do painel, obtém o usuário logado e verifica se há usuário logado.
+     */
     public Profile() {
         initComponents();
         userLogged = EcommerceT1LpApplication.mainFrame.userController.getUserLogged(SessionController.getInstance());
         verifyUserLogged();
     }
 
+    /**
+     * Método que verifica se há um usuário logado e atualiza a exibição dos componentes do perfil conforme necessário.
+     */
     public void verifyUserLogged() {
         if (SessionController.getInstance().isLoggedIn()) {
             lbAboutMe.setIcon(new ImageIcon(getClass().getResource("/com/decrease/view/images/icons/aboutMe.png")));
@@ -181,11 +194,23 @@ public class Profile extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, 600));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método executado quando o texto "Produtos" é clicado.
+     * Abre o painel de produtos.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbProductsMouseClicked
         MainFrame.products = new Products();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.products);
     }//GEN-LAST:event_lbProductsMouseClicked
 
+    /**
+     * Método executado quando o ícone do carrinho é clicado.
+     * Abre o painel do carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbIconCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconCartMouseClicked
         String msg;
         
@@ -204,6 +229,12 @@ public class Profile extends javax.swing.JPanel {
            
     }//GEN-LAST:event_lbIconCartMouseClicked
 
+    /**
+     * Método executado quando o texto "Sair" é clicado.
+     * Realiza o logout do usuário.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
 
@@ -235,6 +266,12 @@ public class Profile extends javax.swing.JPanel {
         
     }//GEN-LAST:event_lbLogOutMouseClicked
 
+    /**
+     * Método executado quando o texto "Sobre Mim" é clicado.
+     * Abre o painel "AboutMe" se o usuário estiver logado, senão abre o painel de login.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbAboutMeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAboutMeMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
             MainFrame.aboutMe = new AboutMe();
@@ -246,6 +283,12 @@ public class Profile extends javax.swing.JPanel {
 
     }//GEN-LAST:event_lbAboutMeMouseClicked
 
+    /**
+     * Método executado quando o texto "Editar Perfil" é clicado.
+     * Abre o painel "EditProfile" se estiver visível.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditProfileMouseClicked
         if (lbEditProfile.isVisible()) {
             MainFrame.editProfile = new EditProfile();
@@ -253,6 +296,12 @@ public class Profile extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbEditProfileMouseClicked
 
+    /**
+     * Método executado quando o texto "Editar Senha" é clicado.
+     * Abre o painel "EditPassword" se estiver visível.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbEditPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditPassMouseClicked
         if (lbEditPass.isVisible()) {
             MainFrame.editPass = new EditPassword();
@@ -260,6 +309,12 @@ public class Profile extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbEditPassMouseClicked
 
+    /**
+     * Método executado quando o texto "Excluir Perfil" é clicado.
+     * Exibe uma mensagem de confirmação e, se confirmado, solicita a senha e tenta excluir a conta.
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbDeleteProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDeleteProfileMouseClicked
         if (lbDeleteProfile.isVisible()) {
 
@@ -311,6 +366,12 @@ public class Profile extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbDeleteProfileMouseClicked
 
+    /**
+     * Método executado quando o texto "Início" é clicado.
+     * Abre o painel "Home".
+     * 
+     * @param evt O evento de clique do mouse associado.
+     */
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
         MainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);

@@ -3,6 +3,9 @@ package com.decrease.entities.enums;
 import com.decrease.model.Alerts;
 import com.decrease.model.CustomException;
 
+/**
+ * Enumeração que representa o status de um pedido.
+ */
 public enum OrderStatus {
 
     WAITING_PAYMENT(1),
@@ -13,14 +16,26 @@ public enum OrderStatus {
 
     private int code;
 
+    /**
+     * Construtor que inicializa o status do pedido com o código fornecido.
+     * @param code O código do status do pedido.
+     */
     private OrderStatus(int code) {
         this.code = code;
     }
 
+    /**
+     * Obtém o código do status do pedido.
+     * @return O código do status do pedido.
+     */
     public int getCode() {
         return code;
     }
 
+    /**
+     * Obtém a representação em forma de string do código do status do pedido.
+     * @return A representação em forma de string do código do status do pedido.
+     */
     public String getCodeString() {
         switch (this.code) {
             case 1:
@@ -37,6 +52,11 @@ public enum OrderStatus {
         return null;
     }
 
+    /**
+     * Obtém o enum correspondente ao código fornecido.
+     * @param code O código do status do pedido.
+     * @return O enum correspondente ao código fornecido.
+     */
     public static OrderStatus valueOf(int code) {
         String msg;
 
