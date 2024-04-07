@@ -158,10 +158,13 @@ fqlej?usp=drive_link">link</a> para acessar o drive.</li>
 
 <h1>Relatório do Software 📊</h1>
 
-<p style="font-size: 18px;">Para mais detalhes sobre o software, faça download do <a href="https://drive.google.com/file/d/1kC-XtprzYi3tTg1Dbux9JbkSUb4I8Rqt/view?usp=sharing">relatório</a>.</p>
+<p style="font-size: 18px;">Para mais detalhes sobre as questões de ENGENHARIA do software, faça download do <a href="https://drive.google.com/file/d/1kC-XtprzYi3tTg1Dbux9JbkSUb4I8Rqt/view?usp=sharing">relatório</a>.</p>
+
+<p style="font-size: 18px;">Para mais detalhes sobre o software POR COMPLETO, faça download deste <a href="https://drive.google.com/file/d/1CexZug-TAp0b_C1iw0vdK9-mnWdyyOEg/view?usp=sharing">relatório</a>.</p>
 
 <br>
 <br>
+
 
 <h1>Créditos 🙌</h1>
 
