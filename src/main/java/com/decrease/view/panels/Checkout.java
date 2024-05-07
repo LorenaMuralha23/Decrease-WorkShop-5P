@@ -2,6 +2,7 @@ package com.decrease.view.panels;
 
 import com.decrease.EcommerceT1LpApplication;
 import com.decrease.controller.SessionController;
+import com.decrease.entities.Order;
 import com.decrease.entities.User;
 import com.decrease.model.Alerts;
 import com.decrease.view.MainFrame;
@@ -13,13 +14,12 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * Classe que representa o painel de checkout em uma aplicação de comércio eletrônico.
- * Este painel permite que o usuário confirme seu pedido, forneça informações de pagamento
- * e finalize a compra.
+ * Classe que representa o painel de checkout em uma aplicação de comércio
+ * eletrônico. Este painel permite que o usuário confirme seu pedido, forneça
+ * informações de pagamento e finalize a compra.
  */
 public class Checkout extends javax.swing.JPanel {
 
-        
     /**
      * Modelo do ComboBox para os meses de vencimento.
      */
@@ -29,7 +29,8 @@ public class Checkout extends javax.swing.JPanel {
      */
     private DefaultComboBoxModel<String> yearModel;
     /**
-     * Documento para restringir o número máximo de caracteres em campos de texto.
+     * Documento para restringir o número máximo de caracteres em campos de
+     * texto.
      */
     private PlainDocument doc;
     /**
@@ -38,7 +39,8 @@ public class Checkout extends javax.swing.JPanel {
     private User userLogged;
 
     /**
-     * Construtor da classe Checkout. Inicializa o painel de checkout e configura os campos e modelos.
+     * Construtor da classe Checkout. Inicializa o painel de checkout e
+     * configura os campos e modelos.
      */
     public Checkout() {
         initComponents();
@@ -56,7 +58,7 @@ public class Checkout extends javax.swing.JPanel {
      * Método para restringir o número máximo de caracteres em campos de texto.
      *
      * @param maxCharacters O número máximo de caracteres permitidos.
-     * @param txtField      O campo de texto a ser restrito.
+     * @param txtField O campo de texto a ser restrito.
      */
     public void restrictFields(int maxCharacters, JTextField txtField) {
         doc = new PlainDocument() {
@@ -93,14 +95,14 @@ public class Checkout extends javax.swing.JPanel {
 
     }
 
-     /**
+    /**
      * Método para inicializar as restrições de campos.
      */
     public void initFieldConstraints() {
         restrictFields(16, tfCardNum);
         restrictFields(3, tfCVC);
     }
-    
+
     /**
      * Método para inicializar os ComboBoxes.
      */
@@ -123,7 +125,8 @@ public class Checkout extends javax.swing.JPanel {
     }
 
     /**
-     * Método para iniciar o número de parcelas disponíveis com base no subtotal do carrinho.
+     * Método para iniciar o número de parcelas disponíveis com base no subtotal
+     * do carrinho.
      */
     public void startInstallmentNum() {
         double subtotal = EcommerceT1LpApplication.mainFrame.cartController.getSubtotal(SessionController.getInstance());
@@ -489,7 +492,7 @@ public class Checkout extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, 600));
     }// </editor-fold>//GEN-END:initComponents
 
-     /**
+    /**
      * Evento de clique no rótulo de confirmação de pagamento.
      *
      * @param evt O evento de clique do mouse associado.
@@ -505,8 +508,8 @@ public class Checkout extends javax.swing.JPanel {
                 && !tfNum.getText().isEmpty()
                 && !tfState.getText().isEmpty()) {
 
-            msg = 
-                """
+            msg
+                    = """
                 Confirm your order before closing!
                 Are you sure you want to confirm the order?
                 """;
@@ -514,25 +517,34 @@ public class Checkout extends javax.swing.JPanel {
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
-                msg = 
-                    """
-                    We at Decrease thank you for your preference!
-                    Your order is now being prepared to be shipped to you.
-                    To the next!
-                    """;
+//                msg = 
+//                    """
+//                    We at Decrease thank you for your preference!
+//                    Your order is now being prepared to be shipped to you.
+//                    To the next!
+//                    """;
+//
+//                Alerts.showSuccessMessage(msg, "Thank You!", null);
 
-                Alerts.showSuccessMessage(msg, "Thank You!", null);
+                //Transformar o carrinho em um pedido
+                Order orderToSave = EcommerceT1LpApplication.mainFrame.cartController.covertCartToOrder(SessionController.getInstance());
+                
+                //Registrar pedido no banco de dados
+                EcommerceT1LpApplication.mainFrame.orderController.saveOrder(orderToSave);
                 
                 EcommerceT1LpApplication.mainFrame.cartController.cleanCart(SessionController.getInstance().getUserLogged());
-                
-                MainFrame.home = new Home();
-                EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+
+                // Loxon Modificações :) : troquei para ir para a tela de teste
+                // MainFrame.home = new Home();
+                // EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+                MainFrame.finishedOrder = new FinishedOrderTest();
+                EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.finishedOrder);
 
             }
-            
+
         } else {
-            msg = 
-                """
+            msg
+                    = """
                 You forgot to fill in a field!
                 Please review your information so we can finalize your payment.
                 """;
@@ -548,8 +560,8 @@ public class Checkout extends javax.swing.JPanel {
      * @param evt O evento de clique do mouse associado.
      */
     private void lbBackToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackToCartMouseClicked
-        String msg = 
-                """
+        String msg
+                = """
                 Are you sure you want to go back?
                 Your completed data will be lost.
                 """;

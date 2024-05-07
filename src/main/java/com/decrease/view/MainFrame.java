@@ -1,6 +1,8 @@
 package com.decrease.view;
 
 import com.decrease.controller.CartController;
+import com.decrease.controller.InvoiceController;
+import com.decrease.controller.OrderController;
 import com.decrease.controller.PaymentController;
 import com.decrease.controller.ProductController;
 import com.decrease.controller.UserController;
@@ -9,6 +11,7 @@ import com.decrease.view.panels.Cart;
 import com.decrease.view.panels.Checkout;
 import com.decrease.view.panels.EditPassword;
 import com.decrease.view.panels.EditProfile;
+import com.decrease.view.panels.FinishedOrderTest;
 import com.decrease.view.panels.Home;
 import com.decrease.view.panels.Products;
 import com.decrease.view.panels.Profile;
@@ -38,6 +41,12 @@ public class MainFrame extends javax.swing.JFrame {
     @Autowired
     public PaymentController paymentController;
     
+    @Autowired
+    public OrderController orderController;
+    
+    @Autowired
+    public InvoiceController invoiceController;
+              
     public static AboutMe aboutMe;
     public static Cart cart;
     public static Checkout checkout;
@@ -48,7 +57,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static Profile profile;
     public static SignIn signIn;
     public static SignUp signUp;
-
+    public static FinishedOrderTest finishedOrder;
     
     /**
      * Construtor padrão da classe MainFrame.
