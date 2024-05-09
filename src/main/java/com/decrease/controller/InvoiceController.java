@@ -13,8 +13,8 @@ public class InvoiceController {
     public InvoiceController() {
     }
     
-    public void generateInvoice(){
-        service.generateInvoice();
+    public void generateInvoice(String rootPathToSave){
+        service.generateInvoice(rootPathToSave);
     }
     
     

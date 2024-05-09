@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,17 +40,19 @@ public class InvoiceService implements invoicePrinter{
     @Autowired
     private OrderItemRepository orderItemRepository;
 
-    private String rootPath = ".\\notas-fiscais-testes\\";
+    private String rootPath;
     private float width = 0;
     private float height = 0;
 
     public InvoiceService() {
         this.width = 98.0f;
         this.height = 88.0f;
+        
     }
 
     @Transactional
-    public void generateInvoice() {
+    public void generateInvoice(String rootPathToSave) {
+        this.rootPath = rootPathToSave;
         Long lastOrderId = orderRepository.findMaxOrderId();
         Optional<Order> orderObj = orderRepository.findById(lastOrderId);
         if (!orderObj.isEmpty()) {
@@ -107,6 +110,7 @@ public class InvoiceService implements invoicePrinter{
                 document.add(paymentDate);
                 document.add(footer);
                 document.close();
+                JOptionPane.showMessageDialog(null, "Your invoice's been downloaded successfully.");
             } catch (IOException ex) {
                 Logger.getLogger(InvoiceService.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -119,7 +123,7 @@ public class InvoiceService implements invoicePrinter{
         PdfWriter writer = null;
         //padrão de nome do arquivo: idDoUser-IdDoPedido
         try {
-            String filePath = rootPath.concat(user.getId().toString() + "-" + orderToRegister.getId().toString() + ".pdf");
+            String filePath = this.rootPath.concat("\\" + user.getId().toString() + "-" + orderToRegister.getId().toString() + ".pdf");
             writer = new PdfWriter(filePath);
             return writer;
         } catch (FileNotFoundException ex) {

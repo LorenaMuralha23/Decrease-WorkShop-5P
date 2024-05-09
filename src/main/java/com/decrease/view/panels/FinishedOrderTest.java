@@ -1,6 +1,9 @@
 package com.decrease.view.panels;
 
 import com.decrease.EcommerceT1LpApplication;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 public class FinishedOrderTest extends javax.swing.JPanel {
 
@@ -61,7 +64,19 @@ public class FinishedOrderTest extends javax.swing.JPanel {
 
     //Por enquanto, só vou gerar a nota fiscal e armazenar na pasta notas-fiscais no endereço ./Decrease-WorkShop-5P\notas-fiscais-testes 
     private void downloadInvoiceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_downloadInvoiceBtnMouseClicked
-        EcommerceT1LpApplication.mainFrame.invoiceController.generateInvoice();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save Invoice");
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+//        fileChooser.showOpenDialog(this);
+
+        int userSelection = fileChooser.showSaveDialog(EcommerceT1LpApplication.mainFrame);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File selectedDirectory = fileChooser.getSelectedFile();
+            String directoryChoosed = selectedDirectory.getAbsolutePath();
+            EcommerceT1LpApplication.mainFrame.invoiceController.generateInvoice(directoryChoosed);
+        }
     }//GEN-LAST:event_downloadInvoiceBtnMouseClicked
 
 
