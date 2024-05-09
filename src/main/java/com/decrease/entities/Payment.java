@@ -23,7 +23,7 @@ public class Payment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private Instant moment;
 
@@ -47,7 +47,7 @@ public class Payment implements Serializable {
      * @param order O pedido associado ao pagamento.
      * @param type O tipo de pagamento.
      */
-    public Payment(Integer id, Instant moment, Order order, Integer type) {
+    public Payment(Long id, Instant moment, Order order, Integer type) {
         super();
         this.id = id;
         this.moment = moment;
@@ -59,7 +59,7 @@ public class Payment implements Serializable {
      * Obtém o ID do pagamento.
      * @return O ID do pagamento.
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -67,7 +67,7 @@ public class Payment implements Serializable {
      * Define o ID do pagamento.
      * @param id O ID do pagamento.
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -3,9 +3,11 @@ package com.decrease.view.panels;
 import com.decrease.EcommerceT1LpApplication;
 import com.decrease.controller.SessionController;
 import com.decrease.entities.Order;
+import com.decrease.entities.Payment;
 import com.decrease.entities.User;
 import com.decrease.model.Alerts;
 import com.decrease.view.MainFrame;
+import java.time.Instant;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -234,13 +236,11 @@ public class Checkout extends javax.swing.JPanel {
         add(lbBackToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 130, -1));
 
         lbIconLogo.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        lbIconLogo.setForeground(new java.awt.Color(0, 0, 0));
         lbIconLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIconLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logoPNG.png"))); // NOI18N
         add(lbIconLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 200, 200));
 
         lbTitle.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 0, 0));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitle.setText("Finishing your order");
         lbTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -248,7 +248,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 180, -1));
 
         lbTitlePayment.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitlePayment.setForeground(new java.awt.Color(0, 0, 0));
         lbTitlePayment.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitlePayment.setText("PAYMENT METHOD");
         lbTitlePayment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -256,7 +255,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbTitlePayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 110, -1));
 
         lbTitleOrderSum.setFont(new java.awt.Font("Malgun Gothic", 1, 18)); // NOI18N
-        lbTitleOrderSum.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleOrderSum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleOrderSum.setText("Order Summary");
         lbTitleOrderSum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -264,7 +262,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbTitleOrderSum, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 70, 250, -1));
 
         lbAmountItems.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbAmountItems.setForeground(new java.awt.Color(0, 0, 0));
         lbAmountItems.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbAmountItems.setText("- ITEMS");
         lbAmountItems.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -272,7 +269,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbAmountItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 190, 80, -1));
 
         lbSubtotalItems.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbSubtotalItems.setForeground(new java.awt.Color(0, 0, 0));
         lbSubtotalItems.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbSubtotalItems.setText("R$ -");
         lbSubtotalItems.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -280,7 +276,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbSubtotalItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 190, 80, -1));
 
         lbCardNum.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbCardNum.setForeground(new java.awt.Color(0, 0, 0));
         lbCardNum.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbCardNum.setText("Card Number");
         lbCardNum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -288,7 +283,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbCardNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 90, 30));
 
         lbTotalShipping.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTotalShipping.setForeground(new java.awt.Color(0, 0, 0));
         lbTotalShipping.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTotalShipping.setText("R$ 15.00");
         lbTotalShipping.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -299,14 +293,12 @@ public class Checkout extends javax.swing.JPanel {
         tp1stTxt.setBackground(new java.awt.Color(250, 250, 250));
         tp1stTxt.setBorder(null);
         tp1stTxt.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        tp1stTxt.setForeground(new java.awt.Color(0, 0, 0));
         tp1stTxt.setText("You can also pay for your order using the QR code, simply select the pix payment option and scan the QR code with your phone. Once payment is complete, the order will be ready to be shipped to you.");
         tp1stTxt.setFocusable(false);
         tp1stTxt.setOpaque(false);
         add(tp1stTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 400, 140));
 
         lbTitleTotalCost.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitleTotalCost.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleTotalCost.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitleTotalCost.setText("TOTAL COST");
         lbTitleTotalCost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -314,7 +306,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbTitleTotalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 370, 80, -1));
 
         lbTotalCost.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTotalCost.setForeground(new java.awt.Color(0, 0, 0));
         lbTotalCost.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTotalCost.setText("R$ -");
         lbTotalCost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -322,7 +313,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbTotalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 370, 60, -1));
 
         lbOrderOwner.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbOrderOwner.setForeground(new java.awt.Color(0, 0, 0));
         lbOrderOwner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(lbOrderOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 140, 250, 30));
 
@@ -335,13 +325,17 @@ public class Checkout extends javax.swing.JPanel {
 
         paymentMethods.add(rbVisa);
         rbVisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbVisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbVisaActionPerformed(evt);
+            }
+        });
         add(rbVisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, 40));
 
         lbIconVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/visa.png"))); // NOI18N
         add(lbIconVisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, 40));
 
         lbTitleShipping.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitleShipping.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleShipping.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitleShipping.setText("SHIPPING");
         lbTitleShipping.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -356,7 +350,6 @@ public class Checkout extends javax.swing.JPanel {
         add(tfCardNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 230, 30));
 
         lbCardHolder.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbCardHolder.setForeground(new java.awt.Color(0, 0, 0));
         lbCardHolder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbCardHolder.setText("Cardholder");
         lbCardHolder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -371,7 +364,6 @@ public class Checkout extends javax.swing.JPanel {
         add(tfCardholder, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 230, 30));
 
         lbDueDate.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbDueDate.setForeground(new java.awt.Color(0, 0, 0));
         lbDueDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbDueDate.setText("Due Date");
         lbDueDate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -387,7 +379,6 @@ public class Checkout extends javax.swing.JPanel {
         add(cbMonthDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 252, 120, 30));
 
         lbCVC.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbCVC.setForeground(new java.awt.Color(0, 0, 0));
         lbCVC.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbCVC.setText("CVC");
         lbCVC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -402,7 +393,6 @@ public class Checkout extends javax.swing.JPanel {
         add(tfCVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 70, 30));
 
         lbInstallments.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbInstallments.setForeground(new java.awt.Color(0, 0, 0));
         lbInstallments.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbInstallments.setText("Installments");
         lbInstallments.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -414,7 +404,6 @@ public class Checkout extends javax.swing.JPanel {
         add(cbInstallments, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 314, 120, 30));
 
         lbTitleOrderOwner.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitleOrderOwner.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleOrderOwner.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitleOrderOwner.setText("ORDER OWNER");
         lbTitleOrderOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -437,7 +426,6 @@ public class Checkout extends javax.swing.JPanel {
         add(lbConfirmPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 400, 250, 40));
 
         lbAddress.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbAddress.setForeground(new java.awt.Color(0, 0, 0));
         lbAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbAddress.setText("Address");
         lbAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -452,7 +440,6 @@ public class Checkout extends javax.swing.JPanel {
         add(tfAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 260, 250, 30));
 
         lbNum.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbNum.setForeground(new java.awt.Color(0, 0, 0));
         lbNum.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbNum.setText("Number");
         lbNum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -474,7 +461,6 @@ public class Checkout extends javax.swing.JPanel {
         add(tfState, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 310, 90, 30));
 
         lbState.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbState.setForeground(new java.awt.Color(0, 0, 0));
         lbState.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbState.setText("State");
         lbState.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -525,9 +511,19 @@ public class Checkout extends javax.swing.JPanel {
 //                    """;
 //
 //                Alerts.showSuccessMessage(msg, "Thank You!", null);
-
+                
+                
                 //Transformar o carrinho em um pedido
                 Order orderToSave = EcommerceT1LpApplication.mainFrame.cartController.covertCartToOrder(SessionController.getInstance());
+                
+                Payment payment = new Payment();
+                payment.setOrder(orderToSave);
+                if (rbMastercard.isSelected() || rbVisa.isSelected()){
+                    payment.setType(1);
+                }else{
+                    payment.setType(2);
+                }
+                orderToSave.setPayment(payment);
                 
                 //Registrar pedido no banco de dados
                 EcommerceT1LpApplication.mainFrame.orderController.saveOrder(orderToSave);
@@ -573,6 +569,10 @@ public class Checkout extends javax.swing.JPanel {
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
         }
     }//GEN-LAST:event_lbBackToCartMouseClicked
+
+    private void rbVisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbVisaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbInstallments;
