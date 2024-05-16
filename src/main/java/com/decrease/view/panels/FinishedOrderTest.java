@@ -9,6 +9,7 @@ public class FinishedOrderTest extends javax.swing.JPanel {
 
     public FinishedOrderTest() {
         initComponents();
+        setText();
     }
 
     /**
@@ -79,7 +80,13 @@ public class FinishedOrderTest extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_downloadInvoiceBtnMouseClicked
 
-
+    public void setText(){
+        textLabel.setText(EcommerceT1LpApplication.msgManager.getMessage("finished-order"));
+        backBtn.setText(EcommerceT1LpApplication.msgManager.getMessage("back-button"));
+        downloadInvoiceBtn.setText(EcommerceT1LpApplication.msgManager.getMessage("download-invoice-btn"));
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton downloadInvoiceBtn;
