@@ -7,15 +7,16 @@ import com.decrease.view.MainFrame;
 import jakarta.annotation.PostConstruct;
 
 /**
- * A classe Home representa o painel inicial da aplicação de comércio eletrônico.
- * Este painel exibe uma interface gráfica com opções de navegação e ações para o usuário.
- * Ele verifica se o usuário está logado e ajusta a exibição de elementos da interface de acordo.
+ * A classe Home representa o painel inicial da aplicação de comércio
+ * eletrônico. Este painel exibe uma interface gráfica com opções de navegação e
+ * ações para o usuário. Ele verifica se o usuário está logado e ajusta a
+ * exibição de elementos da interface de acordo.
  */
 public class Home extends javax.swing.JPanel {
 
     /**
-     * Construtor padrão da classe Home.
-     * Inicializa os componentes do painel e verifica se o usuário está logado.
+     * Construtor padrão da classe Home. Inicializa os componentes do painel e
+     * verifica se o usuário está logado.
      */
     public Home() {
         initComponents();
@@ -23,10 +24,11 @@ public class Home extends javax.swing.JPanel {
     }
 
     /**
-     * Verifica se o usuário está logado e ajusta a visibilidade do botão de logout de acordo.
+     * Verifica se o usuário está logado e ajusta a visibilidade do botão de
+     * logout de acordo.
      */
-    public void verifyUserLogged(){
-        
+    public void verifyUserLogged() {
+
         if (SessionController.getInstance().isLoggedIn()) {
             lbLogOut.setVisible(true);
         } else {
@@ -34,7 +36,7 @@ public class Home extends javax.swing.JPanel {
         }
 
     }
-    
+
     public void setText() {
         lbLogOut.setText(EcommerceT1LpApplication.msgManager.getMessage("logout-button"));
         lb1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("first-text"));
@@ -45,7 +47,6 @@ public class Home extends javax.swing.JPanel {
         tp3rdTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("third-text"));
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,7 +67,6 @@ public class Home extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbLogOut.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbLogOut.setForeground(new java.awt.Color(0, 0, 0));
         lbLogOut.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logout.png"))); // NOI18N
         lbLogOut.setText("LOG OUT");
@@ -79,7 +79,6 @@ public class Home extends javax.swing.JPanel {
         add(lbLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 50, 110, 40));
 
         lb1stTxt.setFont(new java.awt.Font("Malgun Gothic", 1, 14)); // NOI18N
-        lb1stTxt.setForeground(new java.awt.Color(0, 0, 0));
         lb1stTxt.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lb1stTxt.setText("#1 Supplement in the world");
         lb1stTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -90,7 +89,6 @@ public class Home extends javax.swing.JPanel {
         lbShopNow.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
         lbShopNow.setForeground(new java.awt.Color(255, 255, 255));
         lbShopNow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbShopNow.setText("SHOP NOW");
         lbShopNow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbShopNow.setIconTextGap(7);
         lbShopNow.setOpaque(true);
@@ -120,7 +118,6 @@ public class Home extends javax.swing.JPanel {
         add(lbIconProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 40, 40));
 
         lbHome.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbHome.setForeground(new java.awt.Color(0, 0, 0));
         lbHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbHome.setText("Home");
         lbHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -128,7 +125,6 @@ public class Home extends javax.swing.JPanel {
         add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 80, -1));
 
         lbProducts.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbProducts.setForeground(new java.awt.Color(0, 0, 0));
         lbProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbProducts.setText("Products");
         lbProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -141,7 +137,6 @@ public class Home extends javax.swing.JPanel {
         add(lbProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 80, -1));
 
         lbIconLogo.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        lbIconLogo.setForeground(new java.awt.Color(0, 0, 0));
         lbIconLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIconLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logoPNG.png"))); // NOI18N
         add(lbIconLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 200, 200));
@@ -150,7 +145,6 @@ public class Home extends javax.swing.JPanel {
         tp2ndTxt.setBackground(new java.awt.Color(250, 250, 250));
         tp2ndTxt.setBorder(null);
         tp2ndTxt.setFont(new java.awt.Font("Malgun Gothic", 1, 48)); // NOI18N
-        tp2ndTxt.setForeground(new java.awt.Color(0, 0, 0));
         tp2ndTxt.setText("All-in-one Supplement for Your Strength");
         tp2ndTxt.setFocusable(false);
         tp2ndTxt.setOpaque(false);
@@ -160,7 +154,6 @@ public class Home extends javax.swing.JPanel {
         tp3rdTxt.setBackground(new java.awt.Color(250, 250, 250));
         tp3rdTxt.setBorder(null);
         tp3rdTxt.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        tp3rdTxt.setForeground(new java.awt.Color(0, 0, 0));
         tp3rdTxt.setText("Nutritional supplement filled with 33 ingredients, all working together to support your strength and health");
         tp3rdTxt.setFocusable(false);
         tp3rdTxt.setOpaque(false);
@@ -171,9 +164,9 @@ public class Home extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Método executado quando o texto "Shop Now" é clicado.
-     * Abre o painel de produtos.
-     * 
+     * Método executado quando o texto "Shop Now" é clicado. Abre o painel de
+     * produtos.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbShopNowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbShopNowMouseClicked
@@ -182,9 +175,9 @@ public class Home extends javax.swing.JPanel {
     }//GEN-LAST:event_lbShopNowMouseClicked
 
     /**
-     * Método executado quando o texto "Produtos" é clicado.
-     * Abre o painel de produtos.
-     * 
+     * Método executado quando o texto "Produtos" é clicado. Abre o painel de
+     * produtos.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbProductsMouseClicked
@@ -193,33 +186,33 @@ public class Home extends javax.swing.JPanel {
     }//GEN-LAST:event_lbProductsMouseClicked
 
     /**
-     * Método executado quando o ícone do carrinho é clicado.
-     * Abre o painel do carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
-     * 
+     * Método executado quando o ícone do carrinho é clicado. Abre o painel do
+     * carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIconCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconCartMouseClicked
         String msg;
-        
+
         if (SessionController.getInstance().isLoggedIn()) {
             MainFrame.cart = new Cart();
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
         } else {
-            msg = 
-                """
+            msg
+                    = """
                 You must be logged in to access your cart.
                 Please access the profile section and log in
                 """;
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }
-                
+
     }//GEN-LAST:event_lbIconCartMouseClicked
 
     /**
-     * Método executado quando o ícone do perfil é clicado.
-     * Abre o painel de perfil.
-     * 
+     * Método executado quando o ícone do perfil é clicado. Abre o painel de
+     * perfil.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIconProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconProfileMouseClicked
@@ -228,9 +221,9 @@ public class Home extends javax.swing.JPanel {
     }//GEN-LAST:event_lbIconProfileMouseClicked
 
     /**
-     * Método executado quando o texto "Sair" é clicado.
-     * Realiza o logout do usuário.
-     * 
+     * Método executado quando o texto "Sair" é clicado. Realiza o logout do
+     * usuário.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
@@ -250,8 +243,7 @@ public class Home extends javax.swing.JPanel {
                 MainFrame.home = new Home();
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
                 msg
-                    =
-                    """
+                        = """
                     Logout completed successfully!
                     You have been logged out of our system.
                     If you want to enjoy all the features, log in again.
@@ -261,7 +253,7 @@ public class Home extends javax.swing.JPanel {
             }
 
         }
-        
+
     }//GEN-LAST:event_lbLogOutMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

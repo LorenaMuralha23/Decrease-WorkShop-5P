@@ -12,13 +12,13 @@ import java.util.logging.Logger;
  * A classe SignIn representa o painel de login da aplicação.
  */
 public class SignIn extends javax.swing.JPanel {
-    
+
     /**
-     * Construtor da classe SignIn.
-     * Inicializa os componentes do painel.
+     * Construtor da classe SignIn. Inicializa os componentes do painel.
      */
     public SignIn() {
         initComponents();
+        setText();
     }
 
     /**
@@ -131,9 +131,9 @@ public class SignIn extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Método executado quando o texto "Registrar" é clicado.
-     * Abre o painel de cadastro (SignUp).
-     * 
+     * Método executado quando o texto "Registrar" é clicado. Abre o painel de
+     * cadastro (SignUp).
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRegisterMouseClicked
@@ -142,9 +142,9 @@ public class SignIn extends javax.swing.JPanel {
     }//GEN-LAST:event_lbRegisterMouseClicked
 
     /**
-     * Método executado quando o texto "Entrar" é clicado.
-     * Obtém o email e a senha do usuário e tenta fazer login.
-     * 
+     * Método executado quando o texto "Entrar" é clicado. Obtém o email e a
+     * senha do usuário e tenta fazer login.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogInMouseClicked
@@ -187,15 +187,23 @@ public class SignIn extends javax.swing.JPanel {
     }//GEN-LAST:event_lbLogInMouseClicked
 
     /**
-     * Método executado quando o texto "Fechar" é clicado.
-     * Retorna ao painel inicial (Home).
-     * 
+     * Método executado quando o texto "Fechar" é clicado. Retorna ao painel
+     * inicial (Home).
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCloseMouseClicked
-        MainFrame.home = new Home();
-        EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+        EcommerceT1LpApplication.mainFrame.initNewPanel(EcommerceT1LpApplication.mainFrame.home);
     }//GEN-LAST:event_lbCloseMouseClicked
+
+    public void setText() {
+        lbSlogan.setText(EcommerceT1LpApplication.msgManager.getMessage("lbSlogan-text"));
+        lbPass.setText(EcommerceT1LpApplication.msgManager.getMessage("lbPass-text"));
+        lbEmail.setText(EcommerceT1LpApplication.msgManager.getMessage("lbEmail-text"));
+        lb1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("lb1stTxt-text"));
+        lbRegister.setText(EcommerceT1LpApplication.msgManager.getMessage("lbRegister-text"));
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lb1stTxt;

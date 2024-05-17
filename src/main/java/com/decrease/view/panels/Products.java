@@ -21,14 +21,14 @@ public class Products extends javax.swing.JPanel {
      * exibição detalhada. Quando um produto é selecionado, o valor desta
      * variável é true; caso contrário, é false.
      */
-    private boolean isAnyProductSelected; 
-    
+    private boolean isAnyProductSelected;
+
     /**
      * Referência ao produto que está selecionado para exibição detalhada.
      * Quando um produto é selecionado, esta variável mantém o objeto Product
      * correspondente.
      */
-    private Product selectedProduct; 
+    private Product selectedProduct;
 
     /**
      * Construtor padrão da classe Products. Inicializa os componentes do painel
@@ -39,6 +39,7 @@ public class Products extends javax.swing.JPanel {
         verifyUserLogged();
         isAnyProductSelected = false;
         initSelectedProductComponents();
+        setText();
     }
 
     /**
@@ -68,7 +69,7 @@ public class Products extends javax.swing.JPanel {
      * logout de acordo.
      */
     public void verifyUserLogged() {
-        
+
         if (SessionController.getInstance().isLoggedIn()) {
             lbLogOut.setVisible(true);
         } else {
@@ -82,16 +83,30 @@ public class Products extends javax.swing.JPanel {
      *
      * @param p O produto selecionado.
      */
-    public void setSelectedProduct(Product p){
+    public void setSelectedProduct(Product p) {
         selectedProduct = p;
-    
+
         initSelectedProductComponents();
-    
+
         lbSelectedProduct.setIcon(new ImageIcon(getClass().getResource(p.getImgUrl())));
         lbItemName.setText(p.getName());
         lbPrice.setText("R$ " + p.getPrice());
         lbBrand.setText("Decrease");
-        tpDescription.setText(p.getDescription());
+
+        switch (p.getId()) {
+            case 1:
+                tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product1"));
+                break;
+            case 2:
+                tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product2"));
+                break;
+            case 3:
+                tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product3"));
+                break;
+            case 4:
+                tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product4"));
+                break;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -254,13 +269,13 @@ public class Products extends javax.swing.JPanel {
      */
     private void lbIconCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconCartMouseClicked
         String msg;
-        
+
         if (SessionController.getInstance().isLoggedIn()) {
             MainFrame.cart = new Cart();
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
         } else {
-            msg = 
-                """
+            msg
+                    = """
                 You must be logged in to access your cart.
                 Please access the profile section and log in
                 """;
@@ -290,8 +305,8 @@ public class Products extends javax.swing.JPanel {
     private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
 
-            String msg = 
-                    """
+            String msg
+                    = """
                     Are you sure you want to quit?
                     Don't worry, your data will remain saved until you return.
                     """;
@@ -303,8 +318,8 @@ public class Products extends javax.swing.JPanel {
 
                 MainFrame.home = new Home();
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
-                msg = 
-                    """
+                msg
+                        = """
                     Logout completed successfully!
                     You have been logged out of our system.
                     If you want to enjoy all the features, log in again.
@@ -314,13 +329,13 @@ public class Products extends javax.swing.JPanel {
             }
 
         }
-        
+
     }//GEN-LAST:event_lbLogOutMouseClicked
 
     /**
      * Método executado quando o label de retorno à página inicial é clicado.
      * Retorna à página inicial.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
@@ -329,9 +344,10 @@ public class Products extends javax.swing.JPanel {
     }//GEN-LAST:event_lbHomeMouseClicked
 
     /**
-     * Método executado quando um dos labels de produtos é clicado.
-     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
-     * 
+     * Método executado quando um dos labels de produtos é clicado. Define o
+     * produto selecionado para exibição detalhada e atualiza os componentes
+     * correspondentes.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb1stProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb1stProductMouseClicked
@@ -341,9 +357,10 @@ public class Products extends javax.swing.JPanel {
     }//GEN-LAST:event_lb1stProductMouseClicked
 
     /**
-     * Método executado quando o segundo label de produtos é clicado.
-     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
-     * 
+     * Método executado quando o segundo label de produtos é clicado. Define o
+     * produto selecionado para exibição detalhada e atualiza os componentes
+     * correspondentes.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb2ndProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb2ndProductMouseClicked
@@ -353,9 +370,10 @@ public class Products extends javax.swing.JPanel {
     }//GEN-LAST:event_lb2ndProductMouseClicked
 
     /**
-     * Método executado quando o terceiro label de produtos é clicado.
-     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
-     * 
+     * Método executado quando o terceiro label de produtos é clicado. Define o
+     * produto selecionado para exibição detalhada e atualiza os componentes
+     * correspondentes.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb3rdProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb3rdProductMouseClicked
@@ -365,9 +383,10 @@ public class Products extends javax.swing.JPanel {
     }//GEN-LAST:event_lb3rdProductMouseClicked
 
     /**
-     * Método executado quando o quarto label de produtos é clicado.
-     * Define o produto selecionado para exibição detalhada e atualiza os componentes correspondentes.
-     * 
+     * Método executado quando o quarto label de produtos é clicado. Define o
+     * produto selecionado para exibição detalhada e atualiza os componentes
+     * correspondentes.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb4thProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb4thProductMouseClicked
@@ -380,18 +399,18 @@ public class Products extends javax.swing.JPanel {
      * Método executado quando o ícone de adicionar ao carrinho é clicado.
      * Adiciona o produto selecionado ao carrinho do usuário logado, se houver.
      * Caso contrário, exibe uma mensagem de alerta para o usuário.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIconAddToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconAddToCartMouseClicked
         String msg;
-        
+
         if (SessionController.getInstance().isLoggedIn()) {
-            
+
             if (isAnyProductSelected) {
 
-                msg = 
-                    """
+                msg
+                        = """
                     This product will be added to your cart.
                     Are you sure about this operation?
                     """;
@@ -403,10 +422,10 @@ public class Products extends javax.swing.JPanel {
                 }
 
             }
-        
+
         } else {
-            msg = 
-                """
+            msg
+                    = """
                 You must be logged in to add an item to your cart.
                 Please access the profile section and log in.
                 """;
@@ -415,6 +434,16 @@ public class Products extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_lbIconAddToCartMouseClicked
+
+    public void setText() {
+        tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("tpDescription-text"));
+        lbBrand.setText(EcommerceT1LpApplication.msgManager.getMessage("lbBrand-text"));
+        lbPrice.setText(EcommerceT1LpApplication.msgManager.getMessage("lbPrice-text"));
+        lbItemName.setText(EcommerceT1LpApplication.msgManager.getMessage("lbItemName-text"));
+        lbHome.setText(EcommerceT1LpApplication.msgManager.getMessage("lbHome-text"));
+        lbProducts.setText(EcommerceT1LpApplication.msgManager.getMessage("lbProducts-text"));
+        lbLogOut.setText(EcommerceT1LpApplication.msgManager.getMessage("lbLogOut-text"));
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

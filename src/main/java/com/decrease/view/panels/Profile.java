@@ -373,8 +373,7 @@ public class Profile extends javax.swing.JPanel {
      * @param evt O evento de clique do mouse associado.
      */
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
-        MainFrame.home = new Home();
-        EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+        EcommerceT1LpApplication.mainFrame.initNewPanel(EcommerceT1LpApplication.mainFrame.home);
     }//GEN-LAST:event_lbHomeMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
