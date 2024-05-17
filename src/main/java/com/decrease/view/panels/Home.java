@@ -4,6 +4,7 @@ import com.decrease.EcommerceT1LpApplication;
 import com.decrease.controller.SessionController;
 import com.decrease.model.Alerts;
 import com.decrease.view.MainFrame;
+import jakarta.annotation.PostConstruct;
 
 /**
  * A classe Home representa o painel inicial da aplicação de comércio eletrônico.
@@ -34,6 +35,16 @@ public class Home extends javax.swing.JPanel {
 
     }
     
+    public void setText() {
+        lbLogOut.setText(EcommerceT1LpApplication.msgManager.getMessage("logout-button"));
+        lb1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("first-text"));
+        lbShopNow.setText(EcommerceT1LpApplication.msgManager.getMessage("shop-now-button"));
+        lbHome.setText(EcommerceT1LpApplication.msgManager.getMessage("home-button"));
+        lbProducts.setText(EcommerceT1LpApplication.msgManager.getMessage("products-button"));
+        tp2ndTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("second-text"));
+        tp3rdTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("third-text"));
+    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

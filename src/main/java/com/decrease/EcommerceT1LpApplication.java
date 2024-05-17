@@ -38,7 +38,7 @@ public class EcommerceT1LpApplication {
         // Inicia as interfaces desktop
         mainFrame = context.getBean(MainFrame.class);
         mainFrame.starting();
-        
+        mainFrame.setTextHome();
     }       
     
     
