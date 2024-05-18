@@ -95,15 +95,19 @@ public class Products extends javax.swing.JPanel {
 
         switch (p.getId()) {
             case 1:
+                lbItemName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product1"));
                 tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product1"));
                 break;
             case 2:
+                lbItemName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product2"));
                 tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product2"));
                 break;
             case 3:
+                lbItemName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product3"));
                 tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product3"));
                 break;
             case 4:
+                lbItemName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product4"));
                 tpDescription.setText(EcommerceT1LpApplication.msgManager.getMessage("description-product4"));
                 break;
         }
@@ -275,10 +279,7 @@ public class Products extends javax.swing.JPanel {
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
         } else {
             msg
-                    = """
-                You must be logged in to access your cart.
-                Please access the profile section and log in
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("logged-alert");
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }
@@ -306,10 +307,7 @@ public class Products extends javax.swing.JPanel {
         if (SessionController.getInstance().isLoggedIn()) {
 
             String msg
-                    = """
-                    Are you sure you want to quit?
-                    Don't worry, your data will remain saved until you return.
-                    """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("quit-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
@@ -319,11 +317,7 @@ public class Products extends javax.swing.JPanel {
                 MainFrame.home = new Home();
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
                 msg
-                        = """
-                    Logout completed successfully!
-                    You have been logged out of our system.
-                    If you want to enjoy all the features, log in again.
-                    """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("success-logout-alert");
 
                 Alerts.showSuccessMessage(msg, "Log Out Performed", null);
             }
@@ -341,6 +335,7 @@ public class Products extends javax.swing.JPanel {
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
         MainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+        EcommerceT1LpApplication.mainFrame.setTextHome();
     }//GEN-LAST:event_lbHomeMouseClicked
 
     /**
@@ -410,10 +405,7 @@ public class Products extends javax.swing.JPanel {
             if (isAnyProductSelected) {
 
                 msg
-                        = """
-                    This product will be added to your cart.
-                    Are you sure about this operation?
-                    """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("add-product-cart-alert");
 
                 int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
@@ -425,10 +417,7 @@ public class Products extends javax.swing.JPanel {
 
         } else {
             msg
-                    = """
-                You must be logged in to add an item to your cart.
-                Please access the profile section and log in.
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("add-product-not-logged-alert");
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }

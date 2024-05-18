@@ -13,8 +13,7 @@ import java.util.Arrays;
 public class SignUp extends javax.swing.JPanel {
 
     /**
-     * Construtor da classe SignUp.
-     * Inicializa os componentes do painel.
+     * Construtor da classe SignUp. Inicializa os componentes do painel.
      */
     public SignUp() {
         initComponents();
@@ -172,9 +171,9 @@ public class SignUp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Método executado quando o texto "Entrar" é clicado.
-     * Abre o painel de login (SignIn).
-     * 
+     * Método executado quando o texto "Entrar" é clicado. Abre o painel de
+     * login (SignIn).
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogInMouseClicked
@@ -183,9 +182,9 @@ public class SignUp extends javax.swing.JPanel {
     }//GEN-LAST:event_lbLogInMouseClicked
 
     /**
-     * Método executado quando o texto "Registrar" é clicado.
-     * Obtém os dados do usuário e tenta fazer o registro.
-     * 
+     * Método executado quando o texto "Registrar" é clicado. Obtém os dados do
+     * usuário e tenta fazer o registro.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRegisterMouseClicked
@@ -203,16 +202,16 @@ public class SignUp extends javax.swing.JPanel {
                 if (Arrays.equals(pass, confirmPass)) {
 
                     String strPass = new String(pass);
-                    
+
                     User newUser = new User();
                     newUser.setName(name);
                     newUser.setEmail(email);
                     newUser.setPassword(strPass);
                     newUser.setPhone(phoneNum);
                     EcommerceT1LpApplication.mainFrame.userController.createNewUser(newUser);
-                    
-                    msg =
-                        """
+
+                    msg
+                            = """
                         Congratulations, you have completed your registration and can now enjoy all the benefits of our system.
                         See you on the other side!
                         """;
@@ -224,8 +223,8 @@ public class SignUp extends javax.swing.JPanel {
                     EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.signIn);
 
                 } else {
-                    msg =
-                        """ 
+                    msg
+                            = """ 
                         You must fill in the password fields with the same password.
                         Please try again
                         """;
@@ -244,13 +243,15 @@ public class SignUp extends javax.swing.JPanel {
     }//GEN-LAST:event_lbRegisterMouseClicked
 
     /**
-     * Método executado quando o texto "Fechar" é clicado.
-     * Retorna ao painel inicial (Home).
-     * 
+     * Método executado quando o texto "Fechar" é clicado. Retorna ao painel
+     * inicial (Home).
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCloseMouseClicked
+        EcommerceT1LpApplication.mainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(EcommerceT1LpApplication.mainFrame.home);
+        EcommerceT1LpApplication.mainFrame.setTextHome();
     }//GEN-LAST:event_lbCloseMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

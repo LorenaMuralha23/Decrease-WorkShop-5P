@@ -5,6 +5,7 @@ import com.decrease.controller.SessionController;
 import com.decrease.model.Alerts;
 import com.decrease.view.MainFrame;
 import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
 
 /**
  * A classe Home representa o painel inicial da aplicação de comércio
@@ -34,9 +35,9 @@ public class Home extends javax.swing.JPanel {
         } else {
             lbLogOut.setVisible(false);
         }
-
     }
 
+    
     public void setText() {
         lbLogOut.setText(EcommerceT1LpApplication.msgManager.getMessage("logout-button"));
         lb1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("first-text"));
@@ -198,11 +199,7 @@ public class Home extends javax.swing.JPanel {
             MainFrame.cart = new Cart();
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
         } else {
-            msg
-                    = """
-                You must be logged in to access your cart.
-                Please access the profile section and log in
-                """;
+            msg = EcommerceT1LpApplication.msgManager.getMessage("logged-alert");
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }

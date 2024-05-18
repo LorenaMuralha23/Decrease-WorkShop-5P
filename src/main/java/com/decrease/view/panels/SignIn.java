@@ -154,10 +154,7 @@ public class SignIn extends javax.swing.JPanel {
 
         if (email.equals("") || password.equals("")) {
             msg
-                    = """
-                You must fill in all fields to enter.
-                Please try again.
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("incomplete-field-alert");
 
             Alerts.showAlertMessage(msg, "Fields Not Filled In", null);
 
@@ -169,14 +166,12 @@ public class SignIn extends javax.swing.JPanel {
 
                 if (logIn) {
                     msg
-                            = """
-                    You have been correctly logged into the system!
-                    Now you can enjoy all the features
-                    """;
+                            = EcommerceT1LpApplication.msgManager.getMessage("success-logout-alert");
                     Alerts.showSuccessMessage(msg, "Action Confirmed", null);
 
-                    MainFrame.home = new Home();
-                    EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+                    EcommerceT1LpApplication.mainFrame.home = new Home();
+                    EcommerceT1LpApplication.mainFrame.initNewPanel(EcommerceT1LpApplication.mainFrame.home);
+                    EcommerceT1LpApplication.mainFrame.setTextHome();
                 }
             } catch (CustomException ex) {
                 Logger.getLogger(SignIn.class.getName()).log(Level.SEVERE, null, ex);
@@ -193,7 +188,9 @@ public class SignIn extends javax.swing.JPanel {
      * @param evt O evento de clique do mouse associado.
      */
     private void lbCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCloseMouseClicked
+        EcommerceT1LpApplication.mainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(EcommerceT1LpApplication.mainFrame.home);
+        EcommerceT1LpApplication.mainFrame.setTextHome();
     }//GEN-LAST:event_lbCloseMouseClicked
 
     public void setText() {

@@ -57,10 +57,7 @@ public class Cart extends javax.swing.JPanel {
         if (userLogged.getCart() == null || userLogged.getCart().getItems().isEmpty()) {
 
             String msg
-                    = """
-                    Your cart is empty, if you want to continue, 
-                    you must add an item to your cart!
-                    """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("empty-cart-alert");
             Alerts.showInformationMessage(msg, "Your Cart is Empty", null);
 
             lb1stItem.setVisible(false);
@@ -507,18 +504,14 @@ public class Cart extends javax.swing.JPanel {
      */
     public void qntLessThanZero(Product p) {
         String msg
-                = """
-                Do you want to remove this product from your cart?
-                """;
+                = EcommerceT1LpApplication.msgManager.getMessage("want-to-remove-alert");
 
         int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
         if (option == 0) {
             removeFromCart(p);
             msg
-                    = """
-                Product successfully removed from your cart!                
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("success-remove-cart-alert");
 
             Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
         }
@@ -1002,18 +995,14 @@ public class Cart extends javax.swing.JPanel {
     private void lbIcon1stRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon1stRemoveMouseClicked
         if (lbIcon1stRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI1.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1064,18 +1053,14 @@ public class Cart extends javax.swing.JPanel {
     private void lbIcon2ndRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon2ndRemoveMouseClicked
         if (lbIcon2ndRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI2.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1126,18 +1111,14 @@ public class Cart extends javax.swing.JPanel {
     private void lbIcon3rdRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon3rdRemoveMouseClicked
         if (lbIcon3rdRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI3.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1188,18 +1169,14 @@ public class Cart extends javax.swing.JPanel {
     private void lbIcon4thRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon4thRemoveMouseClicked
         if (lbIcon4thRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI4.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1218,19 +1195,14 @@ public class Cart extends javax.swing.JPanel {
         if (userLogged.getCart() != null && !userLogged.getCart().getItems().isEmpty()) {
 
             msg
-                    = """
-                Are you sure about that?
-                This action will empty your cart.
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("clean-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 EcommerceT1LpApplication.mainFrame.cartController.cleanCart(SessionController.getInstance().getUserLogged());
                 msg
-                        = """
-                    All products have been removed from your cart!                
-                    """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("success-remove-cart");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
                 initCartComponents();
@@ -1239,9 +1211,7 @@ public class Cart extends javax.swing.JPanel {
 
         } else {
             msg
-                    = """
-                It is not possible to clear the cart if the cart is empty!
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("clean-empty-cart-alert");
             Alerts.showAlertMessage(msg, "Your Cart is Empty", null);
         }
 
@@ -1262,10 +1232,7 @@ public class Cart extends javax.swing.JPanel {
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.checkout);
             } else {
                 msg
-                        = """
-                    It is not possible to checkout if the cart is empty.
-                    Add an item to the cart and try again
-                    """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("checkout-empty-cart-alert");
 
                 throw new CustomException(msg);
             }
@@ -1276,6 +1243,7 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lbCheckoutMouseClicked
 
     public void setText() {
+        lbTitleShoppingCart.setText(EcommerceT1LpApplication.msgManager.getMessage("cart-title"));
         lbContShopping.setText(EcommerceT1LpApplication.msgManager.getMessage("continue_shopping"));
         lbTitleTotal.setText(EcommerceT1LpApplication.msgManager.getMessage("total"));
         lbTitleTotalItems.setText(EcommerceT1LpApplication.msgManager.getMessage("total_items"));

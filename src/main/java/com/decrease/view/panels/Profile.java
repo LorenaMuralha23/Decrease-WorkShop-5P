@@ -10,7 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 /**
- * A classe Profile representa o painel que exibe o perfil do usuário e permite realizar ações relacionadas a ele.
+ * A classe Profile representa o painel que exibe o perfil do usuário e permite
+ * realizar ações relacionadas a ele.
  */
 public class Profile extends javax.swing.JPanel {
 
@@ -18,30 +19,32 @@ public class Profile extends javax.swing.JPanel {
      * Referência ao usuário logado.
      */
     private User userLogged;
-    
+
     /**
-     * Construtor da classe Profile.
-     * Inicializa os componentes do painel, obtém o usuário logado e verifica se há usuário logado.
+     * Construtor da classe Profile. Inicializa os componentes do painel, obtém
+     * o usuário logado e verifica se há usuário logado.
      */
     public Profile() {
         initComponents();
         userLogged = EcommerceT1LpApplication.mainFrame.userController.getUserLogged(SessionController.getInstance());
         verifyUserLogged();
+        setText();
     }
 
     /**
-     * Método que verifica se há um usuário logado e atualiza a exibição dos componentes do perfil conforme necessário.
+     * Método que verifica se há um usuário logado e atualiza a exibição dos
+     * componentes do perfil conforme necessário.
      */
     public void verifyUserLogged() {
         if (SessionController.getInstance().isLoggedIn()) {
             lbAboutMe.setIcon(new ImageIcon(getClass().getResource("/com/decrease/view/images/icons/aboutMe.png")));
             lbAboutMe.setText("About Me");
-        
+
             lbDeleteProfile.setVisible(true);
             lbEditPass.setVisible(true);
             lbEditProfile.setVisible(true);
             lbLogOut.setVisible(true);
-        
+
         } else {
             lbAboutMe.setIcon(new ImageIcon(getClass().getResource("/com/decrease/view/images/icons/login.png")));
             lbAboutMe.setText("Log In");
@@ -195,9 +198,9 @@ public class Profile extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Método executado quando o texto "Produtos" é clicado.
-     * Abre o painel de produtos.
-     * 
+     * Método executado quando o texto "Produtos" é clicado. Abre o painel de
+     * produtos.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbProductsMouseClicked
@@ -206,44 +209,36 @@ public class Profile extends javax.swing.JPanel {
     }//GEN-LAST:event_lbProductsMouseClicked
 
     /**
-     * Método executado quando o ícone do carrinho é clicado.
-     * Abre o painel do carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
-     * 
+     * Método executado quando o ícone do carrinho é clicado. Abre o painel do
+     * carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIconCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconCartMouseClicked
         String msg;
-        
+
         if (SessionController.getInstance().isLoggedIn()) {
             MainFrame.cart = new Cart();
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
         } else {
-            msg = 
-                """
-                You must be logged in to access your cart.
-                Please access the profile section and log in
-                """;
+            msg = EcommerceT1LpApplication.msgManager.getMessage("logged-alert");
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }
-           
+
     }//GEN-LAST:event_lbIconCartMouseClicked
 
     /**
-     * Método executado quando o texto "Sair" é clicado.
-     * Realiza o logout do usuário.
-     * 
+     * Método executado quando o texto "Sair" é clicado. Realiza o logout do
+     * usuário.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
 
-            String msg
-                    =
-                    """
-                    Are you sure you want to quit?
-                    Don't worry, your data will remain saved until you return.
-                    """;
+            String msg = 
+                    EcommerceT1LpApplication.msgManager.getMessage("quit-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
@@ -253,29 +248,26 @@ public class Profile extends javax.swing.JPanel {
                 MainFrame.home = new Home();
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
                 msg
-                    = """
-                    Logout completed successfully!
-                    You have been logged out of our system.
-                    If you want to enjoy all the features, log in again.
-                    """;
+                        = 
+                    EcommerceT1LpApplication.msgManager.getMessage("success-logout-alert");
 
                 Alerts.showSuccessMessage(msg, "Log Out Performed", null);
             }
 
         }
-        
+
     }//GEN-LAST:event_lbLogOutMouseClicked
 
     /**
-     * Método executado quando o texto "Sobre Mim" é clicado.
-     * Abre o painel "AboutMe" se o usuário estiver logado, senão abre o painel de login.
-     * 
+     * Método executado quando o texto "Sobre Mim" é clicado. Abre o painel
+     * "AboutMe" se o usuário estiver logado, senão abre o painel de login.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbAboutMeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAboutMeMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
             MainFrame.aboutMe = new AboutMe();
-            EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.aboutMe); 
+            EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.aboutMe);
         } else {
             MainFrame.signIn = new SignIn();
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.signIn);
@@ -284,9 +276,9 @@ public class Profile extends javax.swing.JPanel {
     }//GEN-LAST:event_lbAboutMeMouseClicked
 
     /**
-     * Método executado quando o texto "Editar Perfil" é clicado.
-     * Abre o painel "EditProfile" se estiver visível.
-     * 
+     * Método executado quando o texto "Editar Perfil" é clicado. Abre o painel
+     * "EditProfile" se estiver visível.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditProfileMouseClicked
@@ -297,9 +289,9 @@ public class Profile extends javax.swing.JPanel {
     }//GEN-LAST:event_lbEditProfileMouseClicked
 
     /**
-     * Método executado quando o texto "Editar Senha" é clicado.
-     * Abre o painel "EditPassword" se estiver visível.
-     * 
+     * Método executado quando o texto "Editar Senha" é clicado. Abre o painel
+     * "EditPassword" se estiver visível.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbEditPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditPassMouseClicked
@@ -310,20 +302,21 @@ public class Profile extends javax.swing.JPanel {
     }//GEN-LAST:event_lbEditPassMouseClicked
 
     /**
-     * Método executado quando o texto "Excluir Perfil" é clicado.
-     * Exibe uma mensagem de confirmação e, se confirmado, solicita a senha e tenta excluir a conta.
-     * 
+     * Método executado quando o texto "Excluir Perfil" é clicado. Exibe uma
+     * mensagem de confirmação e, se confirmado, solicita a senha e tenta
+     * excluir a conta.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbDeleteProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDeleteProfileMouseClicked
         if (lbDeleteProfile.isVisible()) {
 
-            String msg = 
-                """
+            String msg
+                    = """
                 Are you sure you want to delete your account?
                 This action, once done, there is no way to undo it.
                 """;
-        
+
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
@@ -337,9 +330,9 @@ public class Profile extends javax.swing.JPanel {
                     String typedPassword = new String(password);
 
                     if (typedPassword.equals(userLogged.getPassword())) {
-                        
-                        msg = 
-                            """
+
+                        msg
+                                = """
                             Your password is correct!
                             We will delete your account.
                             """;
@@ -347,34 +340,41 @@ public class Profile extends javax.swing.JPanel {
 
                         // deleteAccount();
                     } else {
-                        msg = 
-                            """
+                        msg
+                                = """
                             Your password is incorrect.
                             We will cancel the account deletion procedure
                             """;
                         Alerts.showErrorMessage(msg, "Action Canceled", null);
                     }
                 } else {
-                    msg = 
-                        """
+                    msg
+                            = """
                         We will cancel the account deletion procedure
                         """;
                     Alerts.showInformationMessage(msg, "Action Canceled by the User", null);
                 }
             }
-        
+
         }
     }//GEN-LAST:event_lbDeleteProfileMouseClicked
 
     /**
-     * Método executado quando o texto "Início" é clicado.
-     * Abre o painel "Home".
-     * 
+     * Método executado quando o texto "Início" é clicado. Abre o painel "Home".
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
-        EcommerceT1LpApplication.mainFrame.initNewPanel(EcommerceT1LpApplication.mainFrame.home);
+        MainFrame.home = new Home();
+        EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+        EcommerceT1LpApplication.mainFrame.setTextHome();
     }//GEN-LAST:event_lbHomeMouseClicked
+
+    public void setText() {
+        lbHome.setText(EcommerceT1LpApplication.msgManager.getMessage("home-button"));
+        lb1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("profile-setting"));
+        lbProducts.setText(EcommerceT1LpApplication.msgManager.getMessage("products-button"));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lb1stTxt;

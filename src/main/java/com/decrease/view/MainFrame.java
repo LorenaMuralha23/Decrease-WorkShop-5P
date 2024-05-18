@@ -52,7 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static Checkout checkout;
     public static EditPassword editPass;
     public static EditProfile editProfile;
-    public static Home home = new Home();
+    public static Home home;
     public static Products products;
     public static Profile profile;
     public static SignIn signIn;
@@ -74,7 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
     public void starting() {
         this.setLayout(new BorderLayout());
 
-//        home = new Home();
+        home = new Home();
         initNewPanel(home);
         this.setLocationRelativeTo(null);
         this.setVisible(true);

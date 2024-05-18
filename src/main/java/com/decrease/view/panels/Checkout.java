@@ -73,19 +73,13 @@ public class Checkout extends javax.swing.JPanel {
                 } else {
 
                     if (!str.matches("\\d+")) {
-                        String msg = """
-                            Values other than numbers are not allowed in the fields.
-                            You can re-enter your details if they are incorrect.
-                            """;
+                        String msg = EcommerceT1LpApplication.msgManager.getMessage("value-other-number");
 
                         Alerts.showAlertMessage(msg, "Alert", null);
                     }
 
                     if (getLength() + str.length() > maxCharacters) {
-                        String msg = """
-                            The character limit allowed in the field has been exceeded.
-                            You can re-enter your details if they are incorrect.
-                            """;
+                        String msg = EcommerceT1LpApplication.msgManager.getMessage("char-limit-alert");
 
                         Alerts.showAlertMessage(msg, "Alert", null);
 
@@ -496,10 +490,7 @@ public class Checkout extends javax.swing.JPanel {
                 && !tfState.getText().isEmpty()) {
 
             msg
-                    = """
-                Confirm your order before closing!
-                Are you sure you want to confirm the order?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("confirm-order-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
@@ -540,10 +531,7 @@ public class Checkout extends javax.swing.JPanel {
 
         } else {
             msg
-                    = """
-                You forgot to fill in a field!
-                Please review your information so we can finalize your payment.
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("empty-field-alert");
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }
@@ -557,10 +545,7 @@ public class Checkout extends javax.swing.JPanel {
      */
     private void lbBackToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackToCartMouseClicked
         String msg
-                = """
-                Are you sure you want to go back?
-                Your completed data will be lost.
-                """;
+                = EcommerceT1LpApplication.msgManager.getMessage("empty-field-alert");
 
         int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 

@@ -1,5 +1,6 @@
     package com.decrease.services;
 
+import com.decrease.EcommerceT1LpApplication;
     import com.decrease.controller.SessionController;
     import com.decrease.controller.ValidatorController;
     import com.decrease.entities.Address;
@@ -151,17 +152,13 @@
                         session.logIn(findedUser);
                         return true;
                     } else {
-                        msg = """
-                        Invalid password!
-                        """;
+                        msg = EcommerceT1LpApplication.msgManager.getMessage("invalid-passoword-alert");
 
                     throw new CustomException(msg);
                     }
 
                 } else {
-                    msg = """
-                        User not found!
-                        """;
+                    msg = EcommerceT1LpApplication.msgManager.getMessage("user-not-found-alert");
 
                     throw new CustomException(msg);
                 }
