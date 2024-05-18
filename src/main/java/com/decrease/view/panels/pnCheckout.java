@@ -54,6 +54,7 @@ public class Checkout extends javax.swing.JPanel {
         lbAmountItems.setText(String.valueOf(userLogged.getCart().getItems().size()) + " ITEMS");
         lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
         setTotalCost();
+        setText();
     }
 
     /**
@@ -72,19 +73,13 @@ public class Checkout extends javax.swing.JPanel {
                 } else {
 
                     if (!str.matches("\\d+")) {
-                        String msg = """
-                            Values other than numbers are not allowed in the fields.
-                            You can re-enter your details if they are incorrect.
-                            """;
+                        String msg = EcommerceT1LpApplication.msgManager.getMessage("value-other-number");
 
                         Alerts.showAlertMessage(msg, "Alert", null);
                     }
 
                     if (getLength() + str.length() > maxCharacters) {
-                        String msg = """
-                            The character limit allowed in the field has been exceeded.
-                            You can re-enter your details if they are incorrect.
-                            """;
+                        String msg = EcommerceT1LpApplication.msgManager.getMessage("char-limit-alert");
 
                         Alerts.showAlertMessage(msg, "Alert", null);
 
@@ -495,10 +490,7 @@ public class Checkout extends javax.swing.JPanel {
                 && !tfState.getText().isEmpty()) {
 
             msg
-                    = """
-                Confirm your order before closing!
-                Are you sure you want to confirm the order?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("confirm-order-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
@@ -511,23 +503,22 @@ public class Checkout extends javax.swing.JPanel {
 //                    """;
 //
 //                Alerts.showSuccessMessage(msg, "Thank You!", null);
-                
-                
+
                 //Transformar o carrinho em um pedido
                 Order orderToSave = EcommerceT1LpApplication.mainFrame.cartController.covertCartToOrder(SessionController.getInstance());
-                
+
                 Payment payment = new Payment();
                 payment.setOrder(orderToSave);
-                if (rbMastercard.isSelected() || rbVisa.isSelected()){
+                if (rbMastercard.isSelected() || rbVisa.isSelected()) {
                     payment.setType(1);
-                }else{
+                } else {
                     payment.setType(2);
                 }
                 orderToSave.setPayment(payment);
-                
+
                 //Registrar pedido no banco de dados
                 EcommerceT1LpApplication.mainFrame.orderController.saveOrder(orderToSave);
-                
+
                 EcommerceT1LpApplication.mainFrame.cartController.cleanCart(SessionController.getInstance().getUserLogged());
 
                 // Loxon Modificações :) : troquei para ir para a tela de teste
@@ -540,10 +531,7 @@ public class Checkout extends javax.swing.JPanel {
 
         } else {
             msg
-                    = """
-                You forgot to fill in a field!
-                Please review your information so we can finalize your payment.
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("empty-field-alert");
 
             Alerts.showAlertMessage(msg, "Alert!", null);
         }
@@ -557,10 +545,7 @@ public class Checkout extends javax.swing.JPanel {
      */
     private void lbBackToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackToCartMouseClicked
         String msg
-                = """
-                Are you sure you want to go back?
-                Your completed data will be lost.
-                """;
+                = EcommerceT1LpApplication.msgManager.getMessage("empty-field-alert");
 
         int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
@@ -573,6 +558,26 @@ public class Checkout extends javax.swing.JPanel {
     private void rbVisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbVisaActionPerformed
+
+    public void setText() {
+        lbTitle.setText(EcommerceT1LpApplication.msgManager.getMessage("checkout-title"));
+        lbTitlePayment.setText(EcommerceT1LpApplication.msgManager.getMessage("payment-method"));
+        lbCardNum.setText(EcommerceT1LpApplication.msgManager.getMessage("card-number"));
+        lbCVC.setText(EcommerceT1LpApplication.msgManager.getMessage("cardhoulder"));
+        lbDueDate.setText(EcommerceT1LpApplication.msgManager.getMessage("due-date"));
+        lbInstallments.setText(EcommerceT1LpApplication.msgManager.getMessage("installments"));
+        tp1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("pix-text"));
+        lbTitleOrderSum.setText(EcommerceT1LpApplication.msgManager.getMessage("order-sumary"));
+        lbTitleOrderOwner.setText(EcommerceT1LpApplication.msgManager.getMessage("order-owner"));
+        lbAmountItems.setText(EcommerceT1LpApplication.msgManager.getMessage("amout-item"));
+        lbAddress.setText(EcommerceT1LpApplication.msgManager.getMessage("address"));
+        lbNum.setText(EcommerceT1LpApplication.msgManager.getMessage("number"));
+        lbState.setText(EcommerceT1LpApplication.msgManager.getMessage("state"));
+        lbTitleTotalCost.setText(EcommerceT1LpApplication.msgManager.getMessage("total-coast"));
+        lbConfirmPayment.setText(EcommerceT1LpApplication.msgManager.getMessage("confirm-payment"));
+        lbBackToCart.setText(EcommerceT1LpApplication.msgManager.getMessage("back-to-cart"));
+        lbTitleShipping.setText(EcommerceT1LpApplication.msgManager.getMessage("shipping"));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbInstallments;

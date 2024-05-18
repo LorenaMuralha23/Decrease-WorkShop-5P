@@ -40,13 +40,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     @Autowired
     public PaymentController paymentController;
-    
+
     @Autowired
     public OrderController orderController;
-    
+
     @Autowired
     public InvoiceController invoiceController;
-              
+
     public static AboutMe aboutMe;
     public static Cart cart;
     public static Checkout checkout;
@@ -58,7 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static SignIn signIn;
     public static SignUp signUp;
     public static FinishedOrderTest finishedOrder;
-    
+
     /**
      * Construtor padrão da classe MainFrame.
      */
@@ -66,10 +66,9 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    
-     /**
-     * Método executado após a construção do frame.
-     * Inicializa o frame com o painel de home.
+    /**
+     * Método executado após a construção do frame. Inicializa o frame com o
+     * painel de home.
      */
     @PostConstruct
     public void starting() {
@@ -90,6 +89,10 @@ public class MainFrame extends javax.swing.JFrame {
         this.getContentPane().removeAll();
         this.add(newJPanel, BorderLayout.CENTER);
         this.pack();
+    }
+
+    public void setTextHome() {
+        home.setText();
     }
 
     @SuppressWarnings("unchecked")

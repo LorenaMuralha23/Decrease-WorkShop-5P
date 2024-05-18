@@ -8,21 +8,24 @@ import com.decrease.view.MainFrame;
 import java.util.Arrays;
 
 /**
- * A classe EditPassword representa o painel de edição de senha do usuário em uma aplicação de comércio eletrônico.
- * Este painel permite que o usuário atualize sua senha e fornece acesso a funcionalidades como carrinho de compras, perfil do usuário e logout.
+ * A classe EditPassword representa o painel de edição de senha do usuário em
+ * uma aplicação de comércio eletrônico. Este painel permite que o usuário
+ * atualize sua senha e fornece acesso a funcionalidades como carrinho de
+ * compras, perfil do usuário e logout.
  */
 public class EditPassword extends javax.swing.JPanel {
 
     /**
-     * Construtor padrão da classe EditPassword.
-     * Inicializa os componentes do painel.
+     * Construtor padrão da classe EditPassword. Inicializa os componentes do
+     * painel.
      */
     public EditPassword() {
         initComponents();
     }
 
     /**
-     * Limpa o formulário de edição de senha, resetando os campos de senha atual, nova senha e confirmação de nova senha.
+     * Limpa o formulário de edição de senha, resetando os campos de senha
+     * atual, nova senha e confirmação de nova senha.
      */
     public void clearForm() {
         pFdConfirmNewPass.setText("");
@@ -210,10 +213,10 @@ public class EditPassword extends javax.swing.JPanel {
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, 600));
     }// </editor-fold>//GEN-END:initComponents
 
-     /**
-     * Método executado quando o texto "Produtos" é clicado.
-     * Abre o painel de produtos.
-     * 
+    /**
+     * Método executado quando o texto "Produtos" é clicado. Abre o painel de
+     * produtos.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbProductsMouseClicked
@@ -222,9 +225,9 @@ public class EditPassword extends javax.swing.JPanel {
     }//GEN-LAST:event_lbProductsMouseClicked
 
     /**
-     * Método executado quando o ícone do carrinho é clicado.
-     * Abre o painel do carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
-     * 
+     * Método executado quando o ícone do carrinho é clicado. Abre o painel do
+     * carrinho se o usuário estiver logado, senão exibe uma mensagem de alerta.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIconCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconCartMouseClicked
@@ -233,10 +236,10 @@ public class EditPassword extends javax.swing.JPanel {
         if (SessionController.getInstance().isLoggedIn()) {
             MainFrame.cart = new Cart();
             EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.cart);
-            
+
         } else {
-            msg =
-                """
+            msg
+                    = """
                 You must be logged in to access your cart.
                 Please access the profile section and log in
                 """;
@@ -246,9 +249,9 @@ public class EditPassword extends javax.swing.JPanel {
     }//GEN-LAST:event_lbIconCartMouseClicked
 
     /**
-     * Método executado quando o ícone do perfil é clicado.
-     * Abre o painel de perfil.
-     * 
+     * Método executado quando o ícone do perfil é clicado. Abre o painel de
+     * perfil.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIconProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIconProfileMouseClicked
@@ -257,16 +260,16 @@ public class EditPassword extends javax.swing.JPanel {
     }//GEN-LAST:event_lbIconProfileMouseClicked
 
     /**
-     * Método executado quando o texto "Sair" é clicado.
-     * Realiza o logout do usuário.
-     * 
+     * Método executado quando o texto "Sair" é clicado. Realiza o logout do
+     * usuário.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
         if (SessionController.getInstance().isLoggedIn()) {
 
-            String msg =
-                    """
+            String msg
+                    = """
                     Are you sure you want to quit?
                     Don't worry, your data will remain saved until you return.
                     """;
@@ -278,8 +281,8 @@ public class EditPassword extends javax.swing.JPanel {
 
                 MainFrame.home = new Home();
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
-                msg =
-                    """
+                msg
+                        = """
                     Logout completed successfully!
                     You have been logged out of our system.
                     If you want to enjoy all the features, log in again.
@@ -292,20 +295,21 @@ public class EditPassword extends javax.swing.JPanel {
     }//GEN-LAST:event_lbLogOutMouseClicked
 
     /**
-     * Método executado quando o texto "Início" é clicado.
-     * Retorna à tela inicial.
-     * 
+     * Método executado quando o texto "Início" é clicado. Retorna à tela
+     * inicial.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
         MainFrame.home = new Home();
         EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
+        EcommerceT1LpApplication.mainFrame.setTextHome();
     }//GEN-LAST:event_lbHomeMouseClicked
 
     /**
-     * Método executado quando o texto "Atualizar" é clicado.
-     * Realiza a atualização da senha do usuário.
-     * 
+     * Método executado quando o texto "Atualizar" é clicado. Realiza a
+     * atualização da senha do usuário.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbUpdateMouseClicked
@@ -317,8 +321,8 @@ public class EditPassword extends javax.swing.JPanel {
                     && pFdNewPass.getPassword().length != 0
                     && pFdConfirmNewPass.getPassword().length != 0) {
 
-                msg =
-                    """
+                msg
+                        = """
                     Are you sure you want to update your password?
                     This change cannot be undone later.
                     """;
@@ -334,8 +338,8 @@ public class EditPassword extends javax.swing.JPanel {
                     if (Arrays.equals(newPass, confirmNewPass)) {
 
                         // if (updateUserPassword(newPass) == true) { Atualizar Senha
-                        msg =
-                            """
+                        msg
+                                = """
                             Password updated successfully.
                             From now on we will use your new password.
                             For security reasons we will log out all devices with your old password.
@@ -355,8 +359,8 @@ public class EditPassword extends javax.swing.JPanel {
                     }*/
                 }
             } else {
-                msg =
-                    """
+                msg
+                        = """
                     You must fill in all fields to enter.
                     Please try again.
                     """;
@@ -369,15 +373,15 @@ public class EditPassword extends javax.swing.JPanel {
     }//GEN-LAST:event_lbUpdateMouseClicked
 
     /**
-     * Método executado quando o texto "Cancelar" é clicado.
-     * Cancela a ação de atualização de senha, limpando o formulário.
-     * 
+     * Método executado quando o texto "Cancelar" é clicado. Cancela a ação de
+     * atualização de senha, limpando o formulário.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCancelMouseClicked
         clearForm();
-        String msg =
-                """
+        String msg
+                = """
                 The action to update your password has been canceled!
                 """;
         Alerts.showErrorMessage(msg, "Operation canceled successfully!", null);

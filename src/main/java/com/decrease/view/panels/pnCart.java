@@ -15,9 +15,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- * Classe que representa o painel de carrinho de compras em uma aplicação de comércio eletrônico.
- * Este painel exibe os itens no carrinho do usuário e permite interações, como ajustar quantidades,
- * remover itens, limpar o carrinho e prosseguir para o checkout.
+ * Classe que representa o painel de carrinho de compras em uma aplicação de
+ * comércio eletrônico. Este painel exibe os itens no carrinho do usuário e
+ * permite interações, como ajustar quantidades, remover itens, limpar o
+ * carrinho e prosseguir para o checkout.
  */
 public class Cart extends javax.swing.JPanel {
 
@@ -25,24 +26,26 @@ public class Cart extends javax.swing.JPanel {
      * Usuário logado atualmente.
      */
     private User userLogged;
-    
+
     /**
      * Itens do carrinho.
      */
     private CartItem cI1, cI2, cI3, cI4;
-    
+
     /**
      * Lista de itens do carrinho.
      */
     private List<CartItem> itemList;
 
     /**
-     * Construtor da classe Cart. Inicializa o painel e recupera os itens do carrinho do usuário logado.
+     * Construtor da classe Cart. Inicializa o painel e recupera os itens do
+     * carrinho do usuário logado.
      */
     public Cart() {
         initComponents();
         userLogged = EcommerceT1LpApplication.mainFrame.userController.getUserLogged(SessionController.getInstance());
         initCartComponents();
+        setText();
     }
 
     /**
@@ -54,10 +57,7 @@ public class Cart extends javax.swing.JPanel {
         if (userLogged.getCart() == null || userLogged.getCart().getItems().isEmpty()) {
 
             String msg
-                    = """
-                    Your cart is empty, if you want to continue, 
-                    you must add an item to your cart!
-                    """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("empty-cart-alert");
             Alerts.showInformationMessage(msg, "Your Cart is Empty", null);
 
             lb1stItem.setVisible(false);
@@ -286,7 +286,8 @@ public class Cart extends javax.swing.JPanel {
     }
 
     /**
-     * Método para preencher os componentes do carrinho com informações dos itens.
+     * Método para preencher os componentes do carrinho com informações dos
+     * itens.
      */
     public void fillComponents() {
         int quantityOfItems = userLogged.getCart().getItems().size();
@@ -296,7 +297,7 @@ public class Cart extends javax.swing.JPanel {
             case 1 -> {
                 cI1 = findProduct(1);
 
-                lb1stName.setText(cI1.getProduct().getName());
+                lb1stName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product1"));
                 lb1stBrand.setText("Decrease");
                 lb1stQnt.setText(String.valueOf(cI1.getQuantity()));
                 lb1stPrice.setText(String.valueOf(cI1.getProduct().getPrice()));
@@ -312,7 +313,7 @@ public class Cart extends javax.swing.JPanel {
                 cI1 = findProduct(1);
                 cI2 = findProduct(2);
 
-                lb1stName.setText(cI1.getProduct().getName());
+                lb1stName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product1"));
                 lb1stBrand.setText("Decrease");
                 lb1stQnt.setText(String.valueOf(cI1.getQuantity()));
                 lb1stPrice.setText(String.valueOf(cI1.getProduct().getPrice()));
@@ -323,7 +324,7 @@ public class Cart extends javax.swing.JPanel {
                 ImageIcon resizedIcon = resizeIcon(originalIcon, 70, 70);
                 lb1stItem.setIcon(resizedIcon);
 
-                lb2ndName.setText(cI2.getProduct().getName());
+                lb2ndName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product2"));
                 lb2ndBrand.setText("Decrease");
                 lb2ndQnt.setText(String.valueOf(cI2.getQuantity()));
                 lb2ndPrice.setText(String.valueOf(cI2.getProduct().getPrice()));
@@ -340,7 +341,7 @@ public class Cart extends javax.swing.JPanel {
                 cI2 = findProduct(2);
                 cI3 = findProduct(3);
 
-                lb1stName.setText(cI1.getProduct().getName());
+                lb1stName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product1"));
                 lb1stBrand.setText("Decrease");
                 lb1stQnt.setText(String.valueOf(cI1.getQuantity()));
                 lb1stPrice.setText(String.valueOf(cI1.getProduct().getPrice()));
@@ -351,7 +352,7 @@ public class Cart extends javax.swing.JPanel {
                 ImageIcon resizedIcon = resizeIcon(originalIcon, 70, 70);
                 lb1stItem.setIcon(resizedIcon);
 
-                lb2ndName.setText(cI2.getProduct().getName());
+                lb2ndName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product2"));
                 lb2ndBrand.setText("Decrease");
                 lb2ndQnt.setText(String.valueOf(cI2.getQuantity()));
                 lb2ndPrice.setText(String.valueOf(cI2.getProduct().getPrice()));
@@ -362,7 +363,7 @@ public class Cart extends javax.swing.JPanel {
                 resizedIcon = resizeIcon(originalIcon, 70, 70);
                 lb2ndItem.setIcon(resizedIcon);
 
-                lb3rdName.setText(cI3.getProduct().getName());
+                lb3rdName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product3"));
                 lb3rdBrand.setText("Decrease");
                 lb3rdQnt.setText(String.valueOf(cI3.getQuantity()));
                 lb3rdPrice.setText(String.valueOf(cI3.getProduct().getPrice()));
@@ -380,7 +381,7 @@ public class Cart extends javax.swing.JPanel {
                 cI3 = findProduct(3);
                 cI4 = findProduct(4);
 
-                lb1stName.setText(cI1.getProduct().getName());
+                lb1stName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product1"));
                 lb1stBrand.setText("Decrease");
                 lb1stQnt.setText(String.valueOf(cI1.getQuantity()));
                 lb1stPrice.setText(String.valueOf(cI1.getProduct().getPrice()));
@@ -391,7 +392,7 @@ public class Cart extends javax.swing.JPanel {
                 ImageIcon resizedIcon = resizeIcon(originalIcon, 70, 70);
                 lb1stItem.setIcon(resizedIcon);
 
-                lb2ndName.setText(cI2.getProduct().getName());
+                lb2ndName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product2"));
                 lb2ndBrand.setText("Decrease");
                 lb2ndQnt.setText(String.valueOf(cI2.getQuantity()));
                 lb2ndPrice.setText(String.valueOf(cI2.getProduct().getPrice()));
@@ -402,7 +403,7 @@ public class Cart extends javax.swing.JPanel {
                 resizedIcon = resizeIcon(originalIcon, 70, 70);
                 lb2ndItem.setIcon(resizedIcon);
 
-                lb3rdName.setText(cI3.getProduct().getName());
+                lb3rdName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product3"));
                 lb3rdBrand.setText("Decrease");
                 lb3rdQnt.setText(String.valueOf(cI3.getQuantity()));
                 lb3rdPrice.setText(String.valueOf(cI3.getProduct().getPrice()));
@@ -413,7 +414,7 @@ public class Cart extends javax.swing.JPanel {
                 resizedIcon = resizeIcon(originalIcon, 70, 70);
                 lb3rdItem.setIcon(resizedIcon);
 
-                lb4thName.setText(cI4.getProduct().getName());
+                lb4thName.setText(EcommerceT1LpApplication.msgManager.getMessage("name-product4"));
                 lb4thBrand.setText("Decrease");
                 lb4thQnt.setText(String.valueOf(cI4.getQuantity()));
                 lb4thPrice.setText(String.valueOf(cI4.getProduct().getPrice()));
@@ -433,8 +434,8 @@ public class Cart extends javax.swing.JPanel {
     /**
      * Método para redimensionar ícones.
      *
-     * @param icon   O ícone a ser redimensionado.
-     * @param width  A largura desejada do ícone redimensionado.
+     * @param icon O ícone a ser redimensionado.
+     * @param width A largura desejada do ícone redimensionado.
      * @param height A altura desejada do ícone redimensionado.
      * @return Um novo ImageIcon redimensionado.
      */
@@ -461,7 +462,8 @@ public class Cart extends javax.swing.JPanel {
     }
 
     /**
-     * Método para encontrar um produto pelo índice na lista de itens do carrinho.
+     * Método para encontrar um produto pelo índice na lista de itens do
+     * carrinho.
      *
      * @param position A posição do item na lista (começando em 1).
      * @return O CartItem correspondente à posição especificada.
@@ -475,7 +477,7 @@ public class Cart extends javax.swing.JPanel {
      * Método para calcular o total de um item no carrinho.
      *
      * @param label O rótulo onde o total será exibido.
-     * @param qnt   A quantidade do item.
+     * @param qnt A quantidade do item.
      * @param price O preço do item.
      */
     public void calculateTotal(JLabel label, String qnt, Double price) {
@@ -502,18 +504,14 @@ public class Cart extends javax.swing.JPanel {
      */
     public void qntLessThanZero(Product p) {
         String msg
-                = """
-                Do you want to remove this product from your cart?
-                """;
+                = EcommerceT1LpApplication.msgManager.getMessage("want-to-remove-alert");
 
         int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
         if (option == 0) {
             removeFromCart(p);
             msg
-                    = """
-                Product successfully removed from your cart!                
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("success-remove-cart-alert");
 
             Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
         }
@@ -945,7 +943,7 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de continuar comprando.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbContShoppingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbContShoppingMouseClicked
@@ -954,8 +952,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lbContShoppingMouseClicked
 
     /**
-     * Evento de clique no ícone de adicionar mais quantidade ao primeiro item do carrinho.
-     * 
+     * Evento de clique no ícone de adicionar mais quantidade ao primeiro item
+     * do carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb1stPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb1stPlusMouseClicked
@@ -968,8 +967,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lb1stPlusMouseClicked
 
     /**
-     * Evento de clique no ícone de remover quantidade do primeiro item do carrinho.
-     * 
+     * Evento de clique no ícone de remover quantidade do primeiro item do
+     * carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb1stMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb1stMinusMouseClicked
@@ -989,24 +989,20 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de remover o primeiro item do carrinho.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIcon1stRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon1stRemoveMouseClicked
         if (lbIcon1stRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI1.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1014,8 +1010,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lbIcon1stRemoveMouseClicked
 
     /**
-     * Evento de clique no ícone de remover quantidade do segundo item do carrinho.
-     * 
+     * Evento de clique no ícone de remover quantidade do segundo item do
+     * carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb2ndMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb2ndMinusMouseClicked
@@ -1034,8 +1031,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lb2ndMinusMouseClicked
 
     /**
-     * Evento de clique no ícone de adicionar mais quantidade ao segundo item do carrinho.
-     * 
+     * Evento de clique no ícone de adicionar mais quantidade ao segundo item do
+     * carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb2ndPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb2ndPlusMouseClicked
@@ -1049,24 +1047,20 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de remover o segundo item do carrinho.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIcon2ndRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon2ndRemoveMouseClicked
         if (lbIcon2ndRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI2.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1074,8 +1068,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lbIcon2ndRemoveMouseClicked
 
     /**
-     * Evento de clique no ícone de remover quantidade do terceiro item do carrinho.
-     * 
+     * Evento de clique no ícone de remover quantidade do terceiro item do
+     * carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb3rdMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb3rdMinusMouseClicked
@@ -1094,8 +1089,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lb3rdMinusMouseClicked
 
     /**
-     * Evento de clique no ícone de adicionar mais quantidade ao terceiro item do carrinho.
-     * 
+     * Evento de clique no ícone de adicionar mais quantidade ao terceiro item
+     * do carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb3rdPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb3rdPlusMouseClicked
@@ -1109,24 +1105,20 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de remover o terceiro item do carrinho.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIcon3rdRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon3rdRemoveMouseClicked
         if (lbIcon3rdRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI3.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1134,8 +1126,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lbIcon3rdRemoveMouseClicked
 
     /**
-     * Evento de clique no ícone de remover quantidade do quarto item do carrinho.
-     * 
+     * Evento de clique no ícone de remover quantidade do quarto item do
+     * carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb4thMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb4thMinusMouseClicked
@@ -1154,8 +1147,9 @@ public class Cart extends javax.swing.JPanel {
     }//GEN-LAST:event_lb4thMinusMouseClicked
 
     /**
-     * Evento de clique no ícone de adicionar mais quantidade ao quarto item do carrinho.
-     * 
+     * Evento de clique no ícone de adicionar mais quantidade ao quarto item do
+     * carrinho.
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lb4thPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb4thPlusMouseClicked
@@ -1169,24 +1163,20 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de remover o quarto item do carrinho.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbIcon4thRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIcon4thRemoveMouseClicked
         if (lbIcon4thRemove.isVisible()) {
             String msg
-                    = """
-                Do you want to remove this product from your cart?
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("remove-item-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 removeFromCart(cI4.getProduct());
                 msg
-                        = """
-                Product successfully removed from your cart!                
-                """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("removed-product-alert");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
             }
@@ -1195,7 +1185,7 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de limpar o carrinho.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbClearCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClearCartMouseClicked
@@ -1205,19 +1195,14 @@ public class Cart extends javax.swing.JPanel {
         if (userLogged.getCart() != null && !userLogged.getCart().getItems().isEmpty()) {
 
             msg
-                    = """
-                Are you sure about that?
-                This action will empty your cart.
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("clean-cart-alert");
 
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
                 EcommerceT1LpApplication.mainFrame.cartController.cleanCart(SessionController.getInstance().getUserLogged());
                 msg
-                        = """
-                    All products have been removed from your cart!                
-                    """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("success-remove-cart");
 
                 Alerts.showSuccessMessage(msg, "Operation Completed Successfully", null);
                 initCartComponents();
@@ -1226,9 +1211,7 @@ public class Cart extends javax.swing.JPanel {
 
         } else {
             msg
-                    = """
-                It is not possible to clear the cart if the cart is empty!
-                """;
+                    = EcommerceT1LpApplication.msgManager.getMessage("clean-empty-cart-alert");
             Alerts.showAlertMessage(msg, "Your Cart is Empty", null);
         }
 
@@ -1236,7 +1219,7 @@ public class Cart extends javax.swing.JPanel {
 
     /**
      * Evento de clique no ícone de prosseguir para o checkout.
-     * 
+     *
      * @param evt O evento de clique do mouse associado.
      */
     private void lbCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCheckoutMouseClicked
@@ -1249,10 +1232,7 @@ public class Cart extends javax.swing.JPanel {
                 EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.checkout);
             } else {
                 msg
-                        = """
-                    It is not possible to checkout if the cart is empty.
-                    Add an item to the cart and try again
-                    """;
+                        = EcommerceT1LpApplication.msgManager.getMessage("checkout-empty-cart-alert");
 
                 throw new CustomException(msg);
             }
@@ -1261,6 +1241,21 @@ public class Cart extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_lbCheckoutMouseClicked
+
+    public void setText() {
+        lbTitleShoppingCart.setText(EcommerceT1LpApplication.msgManager.getMessage("cart-title"));
+        lbContShopping.setText(EcommerceT1LpApplication.msgManager.getMessage("continue_shopping"));
+        lbTitleTotal.setText(EcommerceT1LpApplication.msgManager.getMessage("total"));
+        lbTitleTotalItems.setText(EcommerceT1LpApplication.msgManager.getMessage("total_items"));
+        lbTitleOrderSummary.setText(EcommerceT1LpApplication.msgManager.getMessage("order_summary"));
+        lbAmountItems.setText(EcommerceT1LpApplication.msgManager.getMessage("items"));
+        lbTitleProdDetails.setText(EcommerceT1LpApplication.msgManager.getMessage("product_details"));
+        lbTitlePrice.setText(EcommerceT1LpApplication.msgManager.getMessage("price"));
+        lbTitleQuantity.setText(EcommerceT1LpApplication.msgManager.getMessage("quantity"));
+        lbClearCart.setText(EcommerceT1LpApplication.msgManager.getMessage("clear_cart"));
+        lbCheckout.setText(EcommerceT1LpApplication.msgManager.getMessage("checkout"));
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lb1stBrand;
