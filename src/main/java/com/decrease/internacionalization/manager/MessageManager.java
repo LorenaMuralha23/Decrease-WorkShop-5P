@@ -31,13 +31,13 @@ public class MessageManager {
     }
 
     public void configureLanguage() {
-//        if (this.language.equals("") || this.country.equals("")) {
-//            this.language = System.getProperty("user.language");
-//            this.country = System.getProperty("user.country");
-//        }
+        if (this.language.equals("") || this.country.equals("")) {
+            this.language = System.getProperty("user.language");
+            this.country = System.getProperty("user.country");
+        }
 
-        this.language = "it";
-        this.country = "IT";
+        this.language = "en";
+        this.country = "US";
         this.userLocale = new Locale(this.language, this.country);
     }
 
