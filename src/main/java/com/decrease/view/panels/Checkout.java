@@ -503,15 +503,8 @@ public class Checkout extends javax.swing.JPanel {
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
-//                msg = 
-//                    """
-//                    We at Decrease thank you for your preference!
-//                    Your order is now being prepared to be shipped to you.
-//                    To the next!
-//                    """;
-//
-//                Alerts.showSuccessMessage(msg, "Thank You!", null);
-                
+                MainFrame.pnFinishedOrder = new FinishedOrder();
+                EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.pnFinishedOrder);               
                 
                 //Transformar o carrinho em um pedido
                 Order orderToSave = EcommerceT1LpApplication.mainFrame.cartController.covertCartToOrder(SessionController.getInstance());
@@ -529,12 +522,6 @@ public class Checkout extends javax.swing.JPanel {
                 EcommerceT1LpApplication.mainFrame.orderController.saveOrder(orderToSave);
                 
                 EcommerceT1LpApplication.mainFrame.cartController.cleanCart(SessionController.getInstance().getUserLogged());
-
-                // Loxon Modificações :) : troquei para ir para a tela de teste
-                // MainFrame.home = new Home();
-                // EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
-                MainFrame.finishedOrder = new FinishedOrderTest();
-                EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.finishedOrder);
 
             }
 

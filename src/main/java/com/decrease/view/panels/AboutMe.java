@@ -45,7 +45,6 @@ public class AboutMe extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbEmail.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbEmail.setForeground(new java.awt.Color(0, 0, 0));
         lbEmail.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/email.png"))); // NOI18N
         lbEmail.setText("Email");
@@ -53,7 +52,6 @@ public class AboutMe extends javax.swing.JPanel {
         add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 490, 60));
 
         lbName.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbName.setForeground(new java.awt.Color(0, 0, 0));
         lbName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/name.png"))); // NOI18N
         lbName.setText("Name");
@@ -61,7 +59,6 @@ public class AboutMe extends javax.swing.JPanel {
         add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 490, 60));
 
         lbPhoneNumber.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbPhoneNumber.setForeground(new java.awt.Color(0, 0, 0));
         lbPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbPhoneNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/phone.png"))); // NOI18N
         lbPhoneNumber.setText("Phone Number");
@@ -69,7 +66,6 @@ public class AboutMe extends javax.swing.JPanel {
         add(lbPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 490, 60));
 
         lbTextOne.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbTextOne.setForeground(new java.awt.Color(0, 0, 0));
         lbTextOne.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTextOne.setText("PROFILE INFORMATIONS");
         lbTextOne.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -86,13 +82,11 @@ public class AboutMe extends javax.swing.JPanel {
         add(lbIconCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 40, 40));
 
         lbIconLogo.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        lbIconLogo.setForeground(new java.awt.Color(0, 0, 0));
         lbIconLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIconLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logoPNG.png"))); // NOI18N
         add(lbIconLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 200, 200));
 
         lbHome.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbHome.setForeground(new java.awt.Color(0, 0, 0));
         lbHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbHome.setText("Home");
         lbHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -105,7 +99,6 @@ public class AboutMe extends javax.swing.JPanel {
         add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 80, -1));
 
         lbProducts.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbProducts.setForeground(new java.awt.Color(0, 0, 0));
         lbProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbProducts.setText("Products");
         lbProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -127,7 +120,6 @@ public class AboutMe extends javax.swing.JPanel {
         add(lbIconProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 40, 40));
 
         lbLogOut.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbLogOut.setForeground(new java.awt.Color(0, 0, 0));
         lbLogOut.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logout.png"))); // NOI18N
         lbLogOut.setText("LOG OUT");

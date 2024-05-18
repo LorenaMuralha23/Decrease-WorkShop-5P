@@ -128,17 +128,14 @@ public class Products extends javax.swing.JPanel {
         add(tpDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 200, 160));
 
         lbBrand.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        lbBrand.setForeground(new java.awt.Color(0, 0, 0));
         lbBrand.setText("Brand");
         add(lbBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
         lbPrice.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lbPrice.setForeground(new java.awt.Color(0, 0, 0));
         lbPrice.setText("R$0.00");
         add(lbPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
 
         lbIconAddToCart.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lbIconAddToCart.setForeground(new java.awt.Color(0, 0, 0));
         lbIconAddToCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/addCart.png"))); // NOI18N
         lbIconAddToCart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbIconAddToCart.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,12 +183,10 @@ public class Products extends javax.swing.JPanel {
         add(lb4thProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 120, 200, 200));
 
         lbItemName.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lbItemName.setForeground(new java.awt.Color(0, 0, 0));
         lbItemName.setText("Item Name");
         add(lbItemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 30));
 
         lbHome.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbHome.setForeground(new java.awt.Color(0, 0, 0));
         lbHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbHome.setText("Home");
         lbHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -204,7 +199,6 @@ public class Products extends javax.swing.JPanel {
         add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 80, -1));
 
         lbProducts.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbProducts.setForeground(new java.awt.Color(0, 0, 0));
         lbProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbProducts.setText("Products");
         lbProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -230,7 +224,6 @@ public class Products extends javax.swing.JPanel {
         add(lbIconProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 40, 40));
 
         lbLogOut.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbLogOut.setForeground(new java.awt.Color(0, 0, 0));
         lbLogOut.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logout.png"))); // NOI18N
         lbLogOut.setText("LOG OUT");

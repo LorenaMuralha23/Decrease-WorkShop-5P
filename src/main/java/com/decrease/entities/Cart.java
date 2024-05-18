@@ -8,6 +8,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -95,7 +97,10 @@ public class Cart {
                 subtotal += i.getPrice() * i.getQuantity();
             }
         }
-        return subtotal;
+        
+        BigDecimal bd = new BigDecimal(Double.toString(subtotal));
+        bd = bd.setScale(2, RoundingMode.DOWN);
+        return bd.doubleValue();
     }
 
     /**

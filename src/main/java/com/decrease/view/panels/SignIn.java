@@ -49,13 +49,11 @@ public class SignIn extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbSlogan.setFont(new java.awt.Font("Malgun Gothic", 1, 14)); // NOI18N
-        lbSlogan.setForeground(new java.awt.Color(0, 0, 0));
         lbSlogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbSlogan.setText("Unlock Your Potential, Decrease Limits");
         add(lbSlogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 400, 50));
 
         lbBrand.setFont(new java.awt.Font("Malgun Gothic", 1, 70)); // NOI18N
-        lbBrand.setForeground(new java.awt.Color(0, 0, 0));
         lbBrand.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbBrand.setText("decrease");
         add(lbBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 460, 110));
@@ -103,7 +101,6 @@ public class SignIn extends javax.swing.JPanel {
         add(lbRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, 70, 20));
 
         lbLogIn.setFont(new java.awt.Font("Malgun Gothic", 1, 28)); // NOI18N
-        lbLogIn.setForeground(new java.awt.Color(0, 0, 0));
         lbLogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbLogIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/login.png"))); // NOI18N
         lbLogIn.setText("Log In");
@@ -125,8 +122,6 @@ public class SignIn extends javax.swing.JPanel {
         add(lbClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/backgrounds/signIn.png"))); // NOI18N
-        lbBackground.setMinimumSize(new java.awt.Dimension(1280, 600));
-        lbBackground.setPreferredSize(new java.awt.Dimension(1280, 600));
         add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

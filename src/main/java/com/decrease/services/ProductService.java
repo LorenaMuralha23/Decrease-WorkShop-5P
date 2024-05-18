@@ -2,6 +2,7 @@ package com.decrease.services;
 
 import com.decrease.entities.Product;
 import com.decrease.repositories.ProductRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,6 +68,10 @@ public class ProductService {
         Optional<Product> productObj = repository.findByName(name);
         Product productFinded = productObj.orElse(null);
         return productFinded;
+    }
+    
+    public List<Product> getAllProducts(){
+        return repository.findAll();
     }
     
 }

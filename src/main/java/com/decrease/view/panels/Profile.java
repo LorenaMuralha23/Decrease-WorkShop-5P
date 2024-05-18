@@ -73,7 +73,6 @@ public class Profile extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb1stTxt.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lb1stTxt.setForeground(new java.awt.Color(0, 0, 0));
         lb1stTxt.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lb1stTxt.setText("PROFILE SETTINGS");
         lb1stTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -81,7 +80,6 @@ public class Profile extends javax.swing.JPanel {
         add(lb1stTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 197, -1));
 
         lbEditProfile.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbEditProfile.setForeground(new java.awt.Color(0, 0, 0));
         lbEditProfile.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbEditProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/editUser.png"))); // NOI18N
         lbEditProfile.setText("Edit Profile");
@@ -94,7 +92,6 @@ public class Profile extends javax.swing.JPanel {
         add(lbEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 220, 60));
 
         lbAboutMe.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbAboutMe.setForeground(new java.awt.Color(0, 0, 0));
         lbAboutMe.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbAboutMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/aboutMe.png"))); // NOI18N
         lbAboutMe.setText("About Me");
@@ -107,7 +104,6 @@ public class Profile extends javax.swing.JPanel {
         add(lbAboutMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 220, 60));
 
         lbEditPass.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbEditPass.setForeground(new java.awt.Color(0, 0, 0));
         lbEditPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbEditPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/passwordReset.png"))); // NOI18N
         lbEditPass.setText("Edit Password");
@@ -120,7 +116,6 @@ public class Profile extends javax.swing.JPanel {
         add(lbEditPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 220, 60));
 
         lbDeleteProfile.setFont(new java.awt.Font("Malgun Gothic", 1, 20)); // NOI18N
-        lbDeleteProfile.setForeground(new java.awt.Color(0, 0, 0));
         lbDeleteProfile.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbDeleteProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/deleteUser.png"))); // NOI18N
         lbDeleteProfile.setText("Delete Profile");
@@ -133,13 +128,11 @@ public class Profile extends javax.swing.JPanel {
         add(lbDeleteProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 300, 220, 60));
 
         lbIconLogo.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        lbIconLogo.setForeground(new java.awt.Color(0, 0, 0));
         lbIconLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIconLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logoPNG.png"))); // NOI18N
         add(lbIconLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 200, 200));
 
         lbHome.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbHome.setForeground(new java.awt.Color(0, 0, 0));
         lbHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbHome.setText("Home");
         lbHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -152,7 +145,6 @@ public class Profile extends javax.swing.JPanel {
         add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 80, -1));
 
         lbProducts.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbProducts.setForeground(new java.awt.Color(0, 0, 0));
         lbProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbProducts.setText("Products");
         lbProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -178,7 +170,6 @@ public class Profile extends javax.swing.JPanel {
         add(lbIconProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 40, 40));
 
         lbLogOut.setFont(new java.awt.Font("Malgun Gothic", 0, 14)); // NOI18N
-        lbLogOut.setForeground(new java.awt.Color(0, 0, 0));
         lbLogOut.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/logout.png"))); // NOI18N
         lbLogOut.setText("LOG OUT");

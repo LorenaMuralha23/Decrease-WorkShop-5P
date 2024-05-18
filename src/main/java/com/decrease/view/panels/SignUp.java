@@ -74,7 +74,6 @@ public class SignUp extends javax.swing.JPanel {
         add(lb1stTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 200, 20));
 
         lbRegister.setFont(new java.awt.Font("Malgun Gothic", 1, 28)); // NOI18N
-        lbRegister.setForeground(new java.awt.Color(0, 0, 0));
         lbRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/addUser.png"))); // NOI18N
         lbRegister.setText("Register");
@@ -87,13 +86,11 @@ public class SignUp extends javax.swing.JPanel {
         add(lbRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 160, 60));
 
         lbSlogan.setFont(new java.awt.Font("Malgun Gothic", 1, 14)); // NOI18N
-        lbSlogan.setForeground(new java.awt.Color(0, 0, 0));
         lbSlogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbSlogan.setText("Unlock Your Potential, Decrease Limits");
         add(lbSlogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 400, 50));
 
         lbBrand.setFont(new java.awt.Font("Malgun Gothic", 1, 70)); // NOI18N
-        lbBrand.setForeground(new java.awt.Color(0, 0, 0));
         lbBrand.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbBrand.setText("decrease");
         add(lbBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 460, 110));

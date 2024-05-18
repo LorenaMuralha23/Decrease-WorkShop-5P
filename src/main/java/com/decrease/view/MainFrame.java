@@ -12,6 +12,7 @@ import com.decrease.view.panels.Checkout;
 import com.decrease.view.panels.EditPassword;
 import com.decrease.view.panels.EditProfile;
 import com.decrease.view.panels.FinishedOrderTest;
+import com.decrease.view.panels.FinishedOrder;
 import com.decrease.view.panels.Home;
 import com.decrease.view.panels.Products;
 import com.decrease.view.panels.Profile;
@@ -57,7 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static Profile profile;
     public static SignIn signIn;
     public static SignUp signUp;
-    public static FinishedOrderTest finishedOrder;
+    public static FinishedOrder pnFinishedOrder;
     
     /**
      * Construtor padrão da classe MainFrame.

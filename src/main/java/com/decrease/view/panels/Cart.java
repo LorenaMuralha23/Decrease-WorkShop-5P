@@ -9,8 +9,9 @@ import com.decrease.model.Alerts;
 import com.decrease.model.CustomException;
 import com.decrease.view.MainFrame;
 import java.awt.Image;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
-import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -427,7 +428,7 @@ public class Cart extends javax.swing.JPanel {
         }
 
         lbAmountItems.setText(String.valueOf(quantityOfItems) + " ITEMS");
-        lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+        lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
     }
 
     /**
@@ -481,7 +482,14 @@ public class Cart extends javax.swing.JPanel {
     public void calculateTotal(JLabel label, String qnt, Double price) {
         Double total;
         total = Integer.parseInt(qnt) * price;
+        total = truncate(total);
         label.setText("R$ " + String.valueOf(total));
+    }
+    
+    public double truncate(double num){
+        BigDecimal bd = new BigDecimal(Double.toString(num));
+        bd = bd.setScale(2, RoundingMode.DOWN);
+        return bd.doubleValue();
     }
 
     /**
@@ -579,12 +587,10 @@ public class Cart extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb1stBrand.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        lb1stBrand.setForeground(new java.awt.Color(0, 0, 0));
         lb1stBrand.setText("Brand");
         add(lb1stBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
 
         lb1stName.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb1stName.setForeground(new java.awt.Color(0, 0, 0));
         lb1stName.setText("Item Name");
         add(lb1stName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
@@ -603,7 +609,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbContShopping, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 200, -1));
 
         lbTitleTotal.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitleTotal.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleTotal.setText("TOTAL");
         lbTitleTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -611,7 +616,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbTitleTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 140, -1));
 
         lbTitleTotalItems.setFont(new java.awt.Font("Malgun Gothic", 1, 18)); // NOI18N
-        lbTitleTotalItems.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleTotalItems.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitleTotalItems.setText("Total Items");
         lbTitleTotalItems.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -619,7 +623,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbTitleTotalItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, 100, -1));
 
         lbTitleOrderSummary.setFont(new java.awt.Font("Malgun Gothic", 1, 18)); // NOI18N
-        lbTitleOrderSummary.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleOrderSummary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleOrderSummary.setText("Order Summary");
         lbTitleOrderSummary.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -627,7 +630,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbTitleOrderSummary, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 50, 250, -1));
 
         lbAmountItems.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbAmountItems.setForeground(new java.awt.Color(0, 0, 0));
         lbAmountItems.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbAmountItems.setText("- ITEMS");
         lbAmountItems.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -635,7 +637,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbAmountItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, 100, -1));
 
         lbTitleProdDetails.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitleProdDetails.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleProdDetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleProdDetails.setText("PRODUCTS DETAILS");
         lbTitleProdDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -643,7 +644,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbTitleProdDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, -1));
 
         lb1stMinus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb1stMinus.setForeground(new java.awt.Color(0, 0, 0));
         lb1stMinus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb1stMinus.setText("-");
         lb1stMinus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -656,7 +656,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb1stMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 25, 35));
 
         lbTitlePrice.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitlePrice.setForeground(new java.awt.Color(0, 0, 0));
         lbTitlePrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitlePrice.setText("PRICE");
         lbTitlePrice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -668,32 +667,26 @@ public class Cart extends javax.swing.JPanel {
         add(lb3rdItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 70, 70));
 
         lb2ndName.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb2ndName.setForeground(new java.awt.Color(0, 0, 0));
         lb2ndName.setText("Item Name");
         add(lb2ndName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
         lb2ndBrand.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        lb2ndBrand.setForeground(new java.awt.Color(0, 0, 0));
         lb2ndBrand.setText("Brand");
         add(lb2ndBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
 
         lb4thBrand.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        lb4thBrand.setForeground(new java.awt.Color(0, 0, 0));
         lb4thBrand.setText("Brand");
         add(lb4thBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, -1, -1));
 
         lb4thName.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb4thName.setForeground(new java.awt.Color(0, 0, 0));
         lb4thName.setText("Item Name");
         add(lb4thName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
         lb3rdBrand.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        lb3rdBrand.setForeground(new java.awt.Color(0, 0, 0));
         lb3rdBrand.setText("Brand");
         add(lb3rdBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
 
         lb3rdName.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb3rdName.setForeground(new java.awt.Color(0, 0, 0));
         lb3rdName.setText("Item Name");
         add(lb3rdName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
@@ -719,7 +712,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb4thQnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 35, 35));
 
         lbTitleQuantity.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbTitleQuantity.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleQuantity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleQuantity.setText("QUANTITY");
         lbTitleQuantity.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -727,7 +719,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbTitleQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 100, -1));
 
         lb1stPlus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb1stPlus.setForeground(new java.awt.Color(0, 0, 0));
         lb1stPlus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb1stPlus.setText("+");
         lb1stPlus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -740,7 +731,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb1stPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 25, 35));
 
         lb2ndPlus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb2ndPlus.setForeground(new java.awt.Color(0, 0, 0));
         lb2ndPlus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb2ndPlus.setText("+");
         lb2ndPlus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -753,7 +743,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb2ndPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 25, 35));
 
         lb2ndMinus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb2ndMinus.setForeground(new java.awt.Color(0, 0, 0));
         lb2ndMinus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb2ndMinus.setText("-");
         lb2ndMinus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -766,7 +755,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb2ndMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 25, 35));
 
         lb4thMinus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb4thMinus.setForeground(new java.awt.Color(0, 0, 0));
         lb4thMinus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb4thMinus.setText("-");
         lb4thMinus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -779,7 +767,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb4thMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 25, 35));
 
         lb4thPlus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb4thPlus.setForeground(new java.awt.Color(0, 0, 0));
         lb4thPlus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb4thPlus.setText("+");
         lb4thPlus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -792,7 +779,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb4thPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 25, 35));
 
         lb3rdMinus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb3rdMinus.setForeground(new java.awt.Color(0, 0, 0));
         lb3rdMinus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb3rdMinus.setText("-");
         lb3rdMinus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -805,7 +791,6 @@ public class Cart extends javax.swing.JPanel {
         add(lb3rdMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 25, 35));
 
         lb3rdPlus.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        lb3rdPlus.setForeground(new java.awt.Color(0, 0, 0));
         lb3rdPlus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb3rdPlus.setText("+");
         lb3rdPlus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -818,55 +803,46 @@ public class Cart extends javax.swing.JPanel {
         add(lb3rdPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 25, 35));
 
         lb1stPrice.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb1stPrice.setForeground(new java.awt.Color(0, 0, 0));
         lb1stPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb1stPrice.setText("R$ ");
         add(lb1stPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 140, -1));
 
         lb2ndPrice.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb2ndPrice.setForeground(new java.awt.Color(0, 0, 0));
         lb2ndPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb2ndPrice.setText("R$ ");
         add(lb2ndPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 140, -1));
 
         lb3rdPrice.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb3rdPrice.setForeground(new java.awt.Color(0, 0, 0));
         lb3rdPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb3rdPrice.setText("R$ ");
         add(lb3rdPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 140, -1));
 
         lb4thPrice.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb4thPrice.setForeground(new java.awt.Color(0, 0, 0));
         lb4thPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb4thPrice.setText("R$ ");
         add(lb4thPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 140, -1));
 
         lb1stTotal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb1stTotal.setForeground(new java.awt.Color(0, 0, 0));
         lb1stTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb1stTotal.setText("R$ ");
         add(lb1stTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 140, -1));
 
         lb2ndTotal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb2ndTotal.setForeground(new java.awt.Color(0, 0, 0));
         lb2ndTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb2ndTotal.setText("R$ ");
         add(lb2ndTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 140, -1));
 
         lb3rdTotal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb3rdTotal.setForeground(new java.awt.Color(0, 0, 0));
         lb3rdTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb3rdTotal.setText("R$ ");
         add(lb3rdTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 140, -1));
 
         lb4thTotal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lb4thTotal.setForeground(new java.awt.Color(0, 0, 0));
         lb4thTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb4thTotal.setText("R$ ");
         add(lb4thTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 140, -1));
 
         lbTitleShoppingCart.setFont(new java.awt.Font("Malgun Gothic", 1, 18)); // NOI18N
-        lbTitleShoppingCart.setForeground(new java.awt.Color(0, 0, 0));
         lbTitleShoppingCart.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbTitleShoppingCart.setText("Shopping Cart");
         lbTitleShoppingCart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -896,7 +872,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbIcon3rdRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 300, 35, 35));
 
         lbClearCart.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbClearCart.setForeground(new java.awt.Color(0, 0, 0));
         lbClearCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/clearCart.png"))); // NOI18N
         lbClearCart.setText("CLEAR CART");
         lbClearCart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -917,7 +892,6 @@ public class Cart extends javax.swing.JPanel {
         add(lbIcon4thRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 35, 35));
 
         lbSubtotalItems.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
-        lbSubtotalItems.setForeground(new java.awt.Color(0, 0, 0));
         lbSubtotalItems.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbSubtotalItems.setText("R$ -");
         lbSubtotalItems.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -963,7 +937,7 @@ public class Cart extends javax.swing.JPanel {
             lb1stQnt.setText(String.valueOf(Integer.parseInt(lb1stQnt.getText()) + 1));
             cI1.setQuantity(Integer.parseInt(lb1stQnt.getText()));
             calculateTotal(lb1stTotal, lb1stQnt.getText(), cI1.getProduct().getPrice());
-            lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+            lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
         }
     }//GEN-LAST:event_lb1stPlusMouseClicked
 
@@ -982,7 +956,7 @@ public class Cart extends javax.swing.JPanel {
                 lb1stQnt.setText(String.valueOf(Integer.parseInt(lb1stQnt.getText()) - 1));
                 cI1.setQuantity(Integer.parseInt(lb1stQnt.getText()));
                 calculateTotal(lb1stTotal, lb1stQnt.getText(), cI1.getProduct().getPrice());
-                lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+                lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
             }
         }
     }//GEN-LAST:event_lb1stMinusMouseClicked
@@ -1028,7 +1002,7 @@ public class Cart extends javax.swing.JPanel {
                 lb2ndQnt.setText(String.valueOf(Integer.parseInt(lb2ndQnt.getText()) - 1));
                 cI2.setQuantity(Integer.parseInt(lb2ndQnt.getText()));
                 calculateTotal(lb2ndTotal, lb2ndQnt.getText(), cI2.getProduct().getPrice());
-                lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+                lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
             }
         }
     }//GEN-LAST:event_lb2ndMinusMouseClicked
@@ -1043,7 +1017,7 @@ public class Cart extends javax.swing.JPanel {
             lb2ndQnt.setText(String.valueOf(Integer.parseInt(lb2ndQnt.getText()) + 1));
             cI2.setQuantity(Integer.parseInt(lb2ndQnt.getText()));
             calculateTotal(lb2ndTotal, lb2ndQnt.getText(), cI2.getProduct().getPrice());
-            lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+            lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
         }
     }//GEN-LAST:event_lb2ndPlusMouseClicked
 
@@ -1088,7 +1062,7 @@ public class Cart extends javax.swing.JPanel {
                 lb3rdQnt.setText(String.valueOf(Integer.parseInt(lb3rdQnt.getText()) - 1));
                 cI3.setQuantity(Integer.parseInt(lb3rdQnt.getText()));
                 calculateTotal(lb3rdTotal, lb3rdQnt.getText(), cI3.getProduct().getPrice());
-                lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+                lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
             }
         }
     }//GEN-LAST:event_lb3rdMinusMouseClicked
@@ -1103,7 +1077,7 @@ public class Cart extends javax.swing.JPanel {
             lb3rdQnt.setText(String.valueOf(Integer.parseInt(lb3rdQnt.getText()) + 1));
             cI3.setQuantity(Integer.parseInt(lb3rdQnt.getText()));
             calculateTotal(lb3rdTotal, lb3rdQnt.getText(), cI3.getProduct().getPrice());
-            lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+            lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
         }
     }//GEN-LAST:event_lb3rdPlusMouseClicked
 
@@ -1148,7 +1122,7 @@ public class Cart extends javax.swing.JPanel {
                 lb4thQnt.setText(String.valueOf(Integer.parseInt(lb4thQnt.getText()) - 1));
                 cI4.setQuantity(Integer.parseInt(lb4thQnt.getText()));
                 calculateTotal(lb4thTotal, lb4thQnt.getText(), cI4.getProduct().getPrice());
-                lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+                lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
             }
         }
     }//GEN-LAST:event_lb4thMinusMouseClicked
@@ -1163,7 +1137,7 @@ public class Cart extends javax.swing.JPanel {
             lb4thQnt.setText(String.valueOf(Integer.parseInt(lb4thQnt.getText()) + 1));
             cI4.setQuantity(Integer.parseInt(lb4thQnt.getText()));
             calculateTotal(lb4thTotal, lb4thQnt.getText(), cI4.getProduct().getPrice());
-            lbSubtotalItems.setText("R$ " + String.valueOf(userLogged.getCart().getSubtotal()));
+            lbSubtotalItems.setText("R$ " + userLogged.getCart().getSubtotal());
         }
     }//GEN-LAST:event_lb4thPlusMouseClicked
 

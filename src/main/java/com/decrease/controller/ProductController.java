@@ -2,6 +2,7 @@ package com.decrease.controller;
 
 import com.decrease.entities.Product;
 import com.decrease.services.ProductService;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -60,4 +61,9 @@ public class ProductController {
     public Product getProductByName(String productName){
         return service.getProductByName(productName);
     }
+    
+    public List<Product> getAllProducts(){
+        return service.getAllProducts();
+    }
+    
 }
