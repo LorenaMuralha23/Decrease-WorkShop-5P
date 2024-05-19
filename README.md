@@ -53,8 +53,7 @@
 
 <h2>Pelo Google Drive:</h2>
 <ol style="font-size: 18px;">
-  <li>Clique neste <a href="https://drive.google.com/drive/folders/1jF6mdENtKvjHp_pfjti8LmXR2Rc
-fqlej?usp=drive_link">link</a> para acessar o drive.</li>
+  <li>Clique neste <a href="https://drive.google.com/drive/folders/1oiZ2WhF0ITuYHQMVnFrILi7uGdH7kzMd?usp=drive_link">link</a> para acessar o drive.</li>
   <li>Clique com o botão direito sobre a pasta "Decrease-WorkShop-5P" e clique em “Fazer download”.</li>
   <li>Após o download, descompacte o arquivo desejado em um local de sua preferência.</li>
   <li>No NetBeans, clique em "File" > "Open Project" e selecione o diretório onde o projeto foi descompactado.</li>
@@ -141,6 +140,18 @@ fqlej?usp=drive_link">link</a> para acessar o drive.</li>
 <br>
 <br>
 
+<h1>Internacionalização 🌐</h1>
+<p  style="font-size: 18px;">A aplicação agora conta com suporte para três novas linguagens:</p>
+<ul style="font-size: 18px;">
+  <li>Inglês - Estados Unidos</li>
+  <li>Italiano - Itália</li>
+  <li>Português - Brasil</li>
+</ul>
+<p  style="font-size: 18px;">A linguagem é detectada automaticamente no sistema.</p>
+
+<br>
+<br>
+
 <h1>Funcionalidades Desejadas (ToDo) 📝</h1>
 
 <p style="font-size: 18px;">Estas são algumas das funcionalidades que gostaríamos de implementar no futuro para aprimorar o projeto. Por favor, note que o projeto ainda está em desenvolvimento:</p>
@@ -160,11 +171,10 @@ fqlej?usp=drive_link">link</a> para acessar o drive.</li>
 
 <p style="font-size: 18px;">Para mais detalhes sobre as questões de ENGENHARIA do software, faça download do <a href="https://drive.google.com/file/d/1kC-XtprzYi3tTg1Dbux9JbkSUb4I8Rqt/view?usp=sharing">relatório com foco nos TESTES</a>.</p>
 
-<p style="font-size: 18px;">Para mais detalhes sobre o software POR COMPLETO, faça download deste <a href="https://drive.google.com/file/d/1CexZug-TAp0b_C1iw0vdK9-mnWdyyOEg/view?usp=sharing">relatório</a>.</p>
+<p style="font-size: 18px;">Para mais detalhes sobre o software POR COMPLETO, faça download deste <a href="https://drive.google.com/file/d/1caESJfyWbDm3Ber58roVa9JEETHdRG5m/view?usp=drive_link">relatório</a>.</p>
 
 <br>
 <br>
-
 
 <h1>Créditos 🙌</h1>
 
