@@ -9,6 +9,8 @@ import com.decrease.model.Alerts;
 import com.decrease.model.CustomException;
 import com.decrease.view.MainFrame;
 import java.awt.Image;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 import javax.swing.ImageIcon;
@@ -480,10 +482,17 @@ public class Cart extends javax.swing.JPanel {
      * @param qnt A quantidade do item.
      * @param price O preço do item.
      */
-    public void calculateTotal(JLabel label, String qnt, Double price) {
+    public void calculateTotal(JLabel label, String qnt, Double price)  {
         Double total;
         total = Integer.parseInt(qnt) * price;
+        total = truncate(total);
         label.setText("R$ " + String.valueOf(total));
+    }
+
+    public double truncate(double num) {
+        BigDecimal bd = new BigDecimal(Double.toString(num));
+        bd = bd.setScale(2, RoundingMode.DOWN);
+        return bd.doubleValue();
     }
 
     /**

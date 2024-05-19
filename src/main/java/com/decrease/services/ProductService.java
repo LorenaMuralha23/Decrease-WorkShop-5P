@@ -2,6 +2,7 @@ package com.decrease.services;
 
 import com.decrease.entities.Product;
 import com.decrease.repositories.ProductRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,12 +44,13 @@ public class ProductService {
     }
 
     /**
-     * Cria uma nova instância de produto com os dados fornecidos e a insere no banco de dados.
+     * Cria uma nova instância de produto com os dados fornecidos e a insere no
+     * banco de dados.
      *
-     * @param name        O nome do produto
+     * @param name O nome do produto
      * @param description A descrição do produto
-     * @param price       O preço do produto
-     * @param imgUrl      A URL da imagem do produto
+     * @param price O preço do produto
+     * @param imgUrl A URL da imagem do produto
      * @return O produto recém-criado
      */
     public Product createInstance(String name, String description, Double price, String imgUrl) {
@@ -68,5 +70,9 @@ public class ProductService {
         Product productFinded = productObj.orElse(null);
         return productFinded;
     }
-    
+
+    public List<Product> getAllProducts() {
+        return repository.findAll();
+    }
+
 }

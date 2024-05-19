@@ -11,6 +11,7 @@ import com.decrease.view.panels.Cart;
 import com.decrease.view.panels.Checkout;
 import com.decrease.view.panels.EditPassword;
 import com.decrease.view.panels.EditProfile;
+import com.decrease.view.panels.FinishedOrder;
 import com.decrease.view.panels.FinishedOrderTest;
 import com.decrease.view.panels.Home;
 import com.decrease.view.panels.Products;
@@ -46,7 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     @Autowired
     public InvoiceController invoiceController;
-
+    
     public static AboutMe aboutMe;
     public static Cart cart;
     public static Checkout checkout;
@@ -57,7 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static Profile profile;
     public static SignIn signIn;
     public static SignUp signUp;
-    public static FinishedOrderTest finishedOrder;
+    public static FinishedOrder finishedOrder;
 
     /**
      * Construtor padrão da classe MainFrame.

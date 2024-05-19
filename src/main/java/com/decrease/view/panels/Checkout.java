@@ -305,7 +305,7 @@ public class Checkout extends javax.swing.JPanel {
         lbTotalCost.setText("R$ -");
         lbTotalCost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbTotalCost.setIconTextGap(7);
-        add(lbTotalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 370, 60, -1));
+        add(lbTotalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 370, 80, -1));
 
         lbOrderOwner.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
         lbOrderOwner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -320,11 +320,6 @@ public class Checkout extends javax.swing.JPanel {
 
         paymentMethods.add(rbVisa);
         rbVisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        rbVisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbVisaActionPerformed(evt);
-            }
-        });
         add(rbVisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, 40));
 
         lbIconVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/decrease/view/images/icons/visa.png"))); // NOI18N
@@ -495,14 +490,8 @@ public class Checkout extends javax.swing.JPanel {
             int option = Alerts.showConfirmMessage(msg, "Confirmation Message", null);
 
             if (option == 0) {
-//                msg = 
-//                    """
-//                    We at Decrease thank you for your preference!
-//                    Your order is now being prepared to be shipped to you.
-//                    To the next!
-//                    """;
-//
-//                Alerts.showSuccessMessage(msg, "Thank You!", null);
+                MainFrame.finishedOrder = new FinishedOrder();
+                EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.finishedOrder);
 
                 //Transformar o carrinho em um pedido
                 Order orderToSave = EcommerceT1LpApplication.mainFrame.cartController.covertCartToOrder(SessionController.getInstance());
@@ -520,12 +509,6 @@ public class Checkout extends javax.swing.JPanel {
                 EcommerceT1LpApplication.mainFrame.orderController.saveOrder(orderToSave);
 
                 EcommerceT1LpApplication.mainFrame.cartController.cleanCart(SessionController.getInstance().getUserLogged());
-
-                // Loxon Modificações :) : troquei para ir para a tela de teste
-                // MainFrame.home = new Home();
-                // EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.home);
-                MainFrame.finishedOrder = new FinishedOrderTest();
-                EcommerceT1LpApplication.mainFrame.initNewPanel(MainFrame.finishedOrder);
 
             }
 
@@ -555,15 +538,11 @@ public class Checkout extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbBackToCartMouseClicked
 
-    private void rbVisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbVisaActionPerformed
-
     public void setText() {
         lbTitle.setText(EcommerceT1LpApplication.msgManager.getMessage("checkout-title"));
         lbTitlePayment.setText(EcommerceT1LpApplication.msgManager.getMessage("payment-method"));
         lbCardNum.setText(EcommerceT1LpApplication.msgManager.getMessage("card-number"));
-        lbCVC.setText(EcommerceT1LpApplication.msgManager.getMessage("cardhoulder"));
+        lbCardHolder.setText(EcommerceT1LpApplication.msgManager.getMessage("cardhoulder"));
         lbDueDate.setText(EcommerceT1LpApplication.msgManager.getMessage("due-date"));
         lbInstallments.setText(EcommerceT1LpApplication.msgManager.getMessage("installments"));
         tp1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("pix-text"));
