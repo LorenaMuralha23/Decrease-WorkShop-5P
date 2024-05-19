@@ -6,6 +6,8 @@ import java.util.Objects;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Entidade que representa um item de um pedido de compra.
@@ -111,7 +113,10 @@ public class OrderItem {
 	 * @return O subtotal do item.
 	 */
 	public Double getSubTotal() {
-		return price * quantity;
+            Double subtotal = price * quantity;
+            BigDecimal bd = new BigDecimal(Double.toString(subtotal));
+            bd = bd.setScale(2, RoundingMode.DOWN);
+            return bd.doubleValue();
 	}
 
         /**

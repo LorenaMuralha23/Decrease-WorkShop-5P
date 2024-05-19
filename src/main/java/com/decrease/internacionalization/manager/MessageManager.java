@@ -36,8 +36,6 @@ public class MessageManager {
             this.country = System.getProperty("user.country");
         }
 
-        this.language = "en";
-        this.country = "US";
         this.userLocale = new Locale(this.language, this.country);
     }
 
