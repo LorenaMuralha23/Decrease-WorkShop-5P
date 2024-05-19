@@ -15,6 +15,7 @@ public class FinishedOrder extends javax.swing.JPanel {
     public FinishedOrder() {
         initComponents();
         centerTxt(tp1stTxt);
+        setText();
     }
 
     public void centerTxt(JTextPane tp) {
@@ -130,6 +131,13 @@ public class FinishedOrder extends javax.swing.JPanel {
   
     }//GEN-LAST:event_lbDownInvoiceMouseClicked
 
+    public void setText(){
+        tp1stTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("finished-order"));
+        tp2ndTxt.setText(EcommerceT1LpApplication.msgManager.getMessage("decrease-order"));
+        lbDownInvoice.setText(EcommerceT1LpApplication.msgManager.getMessage("download-invoice-button"));
+        lbBackToHome.setText(EcommerceT1LpApplication.msgManager.getMessage("back-button"));
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lbBackToHome;
     private javax.swing.JLabel lbBackground;
